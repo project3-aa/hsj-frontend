@@ -6,6 +6,8 @@ import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks
 import AuthService from './services/AuthService.js';
 import Navbar from './components/navbar/Navbar.js';
+import HomePage from './components/homepage/HomePage.js'
+import UserHomePage from "./components/userhomepage/UserHomepage.js"
 import AllUserJumps from './components/alluserjumps/AllUserJumps.js';
 import CreateJump from './components/createjump/CreateJump.js'
 import AllJumps from './components/alljumps/AllJumps.js'
@@ -63,23 +65,25 @@ class App extends Component {
         />
 
         {/* {this.state.signupShowing &&  */}
-        <Signup getUser = {this.getCurrentlyLoggedInUser}
+        {/* <Signup getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
-         />
+         /> */}
         {/* } */}
 
         {/* {this.state.loginShowing &&  */}
-        <Login getUser = {this.getCurrentlyLoggedInUser}
+        {/* <Login getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
-        />
+        /> */}
         {/* } */}
       
         
 
         <Switch>
-          <Route exact path ="/allUserJumps" render={(props) => <AllUserJumps />} />
-          <Route exact path ="/createJump" render={(props) => <CreateJump />} />
-          <Route exact path ="/allJumps" render={(props) => <AllJumps />} />
+          <Route exact path="/" render={(props) => <HomePage />} />
+          <Route exact path="/userHomepage" render={(props) => <UserHomePage />} />
+          <Route exact path="/allUserJumps" render={(props) => <AllUserJumps />} />
+          <Route exact path="/createJump" render={(props) => <CreateJump />} />
+          <Route exact path="/allJumps" render={(props) => <AllJumps />} />
         </Switch>
  
       </div>

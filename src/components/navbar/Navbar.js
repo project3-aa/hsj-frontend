@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css'
-// import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 
@@ -21,17 +21,12 @@ function Navbar(props){
                 <div class="nav-wrapper">
                 <img src="./images/hsj4Logo.png" alt="HSJLOGO" class="brand-logo center"></img>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
+                    <li><Link to='/userHomepage'>User Homepage</Link></li>
                     <li><a href="badges.html">Components</a></li>
                     <li><a href="collapsible.html">JavaScript</a></li>
                 </ul>
                 </div>
             </nav>
-            <header class="navHeader">
-                <div class="navOneLiner">
-                <h3> We'll tell you what trip to jump to next.</h3>
-                </div>
-            </header>
         
      </div>
 

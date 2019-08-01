@@ -11,11 +11,6 @@ class UserHomepage extends Component {
 
     }
   }
-  
-
-
-
-
 
 
 
