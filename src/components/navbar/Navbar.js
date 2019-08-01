@@ -16,16 +16,28 @@ function Navbar(props){
 
     return(
        
-        <nav>
-        <div class="nav-wrapper">
-          <img src="../../logo.svg" alt="HSJLOGO"></img>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-          </ul>
-        </div>
-      </nav>
+     <div class="HomePage">
+                <nav class="transparent">
+                <div class="nav-wrapper">
+                <img src="./images/hsj4Logo.png" alt="HSJLOGO" class="brand-logo center"></img>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+                </div>
+            </nav>
+            <header class="navHeader">
+                <div class="navOneLiner">
+                <h3> We'll tell you what trip to jump to next.</h3>
+                </div>
+            </header>
+        
+     </div>
+
+
+
+
         // Andre's original code
         // <nav>
         //     {/* {props.theUser && 
