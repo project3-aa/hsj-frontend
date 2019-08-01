@@ -5,9 +5,10 @@ import Signup from './components/signup/Signup.js';
 import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks
 import AuthService from './services/AuthService.js';
-
-import Navbar from './components/navbar/Navbar.js'
-
+import Navbar from './components/navbar/Navbar.js';
+import AllUserJumps from './components/alluserjumps/AllUserJumps.js';
+import CreateJump from './components/createjump/CreateJump.js'
+import AllJumps from './components/alljumps/AllJumps.js'
 
 
 
@@ -53,33 +54,35 @@ class App extends Component {
         <div className="App">
         
 
-      <Navbar 
-      theUser = {this.state.currentlyLoggedIn} 
-      pleaseLogOut = {()=> this.service.logout()}
-      // toggleForm = {this.toggleForm}
-      getUser = {this.getCurrentlyLoggedInUser}
-      
-      />
+        <Navbar 
+        theUser = {this.state.currentlyLoggedIn} 
+        pleaseLogOut = {()=> this.service.logout()}
+        // toggleForm = {this.toggleForm}
+        getUser = {this.getCurrentlyLoggedInUser}
 
-      {/* {this.state.signupShowing &&  */}
+        />
+
+        {/* {this.state.signupShowing &&  */}
         <Signup getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
          />
-      {/* } */}
+        {/* } */}
 
-      {/* {this.state.loginShowing &&  */}
+        {/* {this.state.loginShowing &&  */}
         <Login getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
         />
-      {/* } */}
+        {/* } */}
       
         
 
-          <Switch>
-     
-          </Switch>
-          
-        </div>
+        <Switch>
+          <Route exact path ="/allUserJumps" render={(props) => <AllUserJumps />} />
+          <Route exact path ="/createJump" render={(props) => <CreateJump />} />
+          <Route exact path ="/allJumps" render={(props) => <AllJumps />} />
+        </Switch>
+ 
+      </div>
     );
   }
 };
