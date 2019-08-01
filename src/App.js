@@ -4,7 +4,6 @@ import {Route, Link, Switch} from 'react-router-dom';
 import Signup from './components/signup/Signup.js';
 import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks
-
 import AuthService from './services/AuthService.js';
 
 import Navbar from './components/navbar/Navbar.js'
@@ -79,7 +78,7 @@ class App extends Component {
           <Switch>
      
           </Switch>
-
+          
         </div>
     );
   }
