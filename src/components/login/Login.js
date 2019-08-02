@@ -24,12 +24,15 @@ class Login extends Component {
       .then(()=>{
           // this.props.toggleForm('login'); //Should I be setting the state back to empty?
           this.props.getUser();
+          
       })
 
   }
 
 
   render(){
+    console.log("this is the props ---- ", this.props);
+    
     return(
     <div>
       <Button href="#modal1" className="modal-trigger">
@@ -45,7 +48,7 @@ class Login extends Component {
           />
 
           {/* <label>Password</label> */}
-          <input placeholder="Username" value={this.state.passwordInput} 
+          <input placeholder="Password" value={this.state.passwordInput} 
             name="passwordInput"
             onChange={this.handleChange}
           />

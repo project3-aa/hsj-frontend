@@ -33,6 +33,8 @@ class ViewJump extends Component{
 
   //remember (de)?populate
 
+  //call the AXIOS EDIT ROUTE in HERE and pass the method down as a PROP
+
   render(){
     console.log('this is the state',this.state.theJump)
     return(
@@ -41,10 +43,13 @@ class ViewJump extends Component{
         <h1>This is a single Jump!</h1>
 
         <div>
-          <h4>This jump starts at -----{this.state.theJump.start}</h4>
-          <h4>And ends at.......{this.state.theJump.end}</h4>
-          <h4>It took {this.state.theJump.duration} days total</h4>
-          <h4>{this.state.theJump.description}</h4>
+          <h3>This jump starts at -----{this.state.theJump.start}</h3>
+          <h3>And ends at.......{this.state.theJump.end}</h3>
+          <h3>It took {this.state.theJump.duration} days total</h3>
+          <h3>{this.state.theJump.description}</h3>
+        </div>
+        <div>
+          {/* <TheSkip theSkipInfo = {this.state.theJump.skip} /> */}
         </div>
       </div>
     )

@@ -18,14 +18,14 @@ class CreateJump extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
-    axios.post("http://localhost:4000/api/jump/newJump", {
-      theStart: this.state.newStart,
-      theEnd: this.state.newEnd,
-      theDuration: this.state.newDuration,
-      theDescription: this.state.newDescription,
+    axios.post("http://localhost:5000/api/jump/newJump", {
+      startCity: this.state.newStart,
+      endCity: this.state.newEnd,
+      jumpDuration: this.state.newDuration,
+      jumpDescription: this.state.newDescription,
     }, {withCredentials: true})
     .then(() => {
-      this.props.getData();
+      // this.props.getData();
       //this function updates something
         this.setState({
           newStart: "", 
@@ -35,11 +35,14 @@ class CreateJump extends Component {
         });
     })
     .catch (error => console.log(error))
-    }
+  }
+
+
 
     handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
+      console.log(this.state)
   }
   
 
@@ -63,7 +66,7 @@ class CreateJump extends Component {
           <input type="number" name="newDuration" value={this.state.newDuration} onChange={e => this.handleChange(e)}/>
           <label>Description:</label>
           <textarea name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)} />
-          <input type="submit" value="Submit"/>
+          <button>SUBMIT</button>
         </form>
       </div>
     )

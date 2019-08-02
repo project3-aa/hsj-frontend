@@ -2,20 +2,20 @@ import React from 'react';
 import './navbar.css'
 import {Link} from 'react-router-dom';
 import Login from '../login/Login'
-import M from 'materialize-css';
+// import M from 'materialize-css';
 import { Modal, Button } from 'react-materialize';
 
 
 function Navbar(props){
 
     
-    // const doTheLogout = () =>{
-        //     props.pleaseLogOut()
-        //     .then(()=>{
-            //         props.getUser();
-            //     })
+    const doTheLogout = () =>{
+            props.pleaseLogOut()
+            .then(()=>{
+                    props.getUser();
+                })
             
-            // }
+            }
            
             return(
        
@@ -25,7 +25,7 @@ function Navbar(props){
         <img src="../../../images/hsj4Logo.png" alt="HSJLOGO" className="brand-logo center"></img>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to='/userHomepage'>User Homepage</Link></li>
-            <li><Login/></li>
+            <li><Login {...props} getUser = {props.getUser} /></li>
             <li>
                 <Button href="#modal1" className="modal-trigger">
                 sign Up
@@ -34,7 +34,7 @@ function Navbar(props){
                 Lorem ipsum dolor sit amet
                 </Modal>
             </li>
-
+            <button onClick = {doTheLogout} >Log Out </button>
         </ul>
         </div>
      </nav>
