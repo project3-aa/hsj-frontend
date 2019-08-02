@@ -1,33 +1,43 @@
 import React from 'react';
 import './navbar.css'
 import {Link} from 'react-router-dom';
-
+import Login from '../login/Login'
+import M from 'materialize-css';
+import { Modal, Button } from 'react-materialize';
 
 
 function Navbar(props){
 
+    
     // const doTheLogout = () =>{
-    //     props.pleaseLogOut()
-    //     .then(()=>{
-    //         props.getUser();
-    //     })
-
-    // }
-
-    return(
+        //     props.pleaseLogOut()
+        //     .then(()=>{
+            //         props.getUser();
+            //     })
+            
+            // }
+           
+            return(
        
      <div class="HomePage">
-                <nav class="transparent">
-                <div class="nav-wrapper">
-                <img src="./images/hsj4Logo.png" alt="HSJLOGO" class="brand-logo center"></img>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><Link to='/userHomepage'>User Homepage</Link></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                </ul>
-                </div>
-            </nav>
-        
+        <nav class="transparent">
+        <div class="nav-wrapper">
+        <img src="./images/hsj4Logo.png" alt="HSJLOGO" class="brand-logo center"></img>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><Link to='/userHomepage'>User Homepage</Link></li>
+            <li><Login/></li>
+            <li>
+                <Button href="#modal1" className="modal-trigger">
+                sign Up
+                </Button>
+                <Modal id="modal1">
+                Lorem ipsum dolor sit amet
+                </Modal>
+            </li>
+
+        </ul>
+        </div>
+     </nav>
      </div>
 
 
