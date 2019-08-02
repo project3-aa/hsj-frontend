@@ -19,11 +19,11 @@ function Navbar(props){
            
             return(
        
-     <div class="HomePage">
-        <nav class="transparent">
-        <div class="nav-wrapper">
-        <img src="./images/hsj4Logo.png" alt="HSJLOGO" class="brand-logo center"></img>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+     <div className="HomePage">
+        <nav className="transparent">
+        <div className="nav-wrapper">
+        <img src="../../../images/hsj4Logo.png" alt="HSJLOGO" className="brand-logo center"></img>
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to='/userHomepage'>User Homepage</Link></li>
             <li><Login/></li>
             <li>

@@ -34,7 +34,7 @@ class ViewJump extends Component{
   //remember (de)?populate
 
   render(){
-    console.log(this.state.theJump)
+    console.log('this is the state',this.state.theJump)
     return(
 
       <div>
