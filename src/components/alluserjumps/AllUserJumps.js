@@ -14,6 +14,8 @@ class AllUserJumps extends Component {
   }
   
   
+  //make axios call for allthe user jumps(use the props.state.user thingy). pass down props to SingleJump the props of id etc. 
+  //set user in state in appjs and pass it down as props
 
 
 

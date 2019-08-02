@@ -11,6 +11,7 @@ import UserHomePage from "./components/userhomepage/UserHomepage.js"
 import AllUserJumps from './components/alluserjumps/AllUserJumps.js';
 import CreateJump from './components/createjump/CreateJump.js'
 import AllJumps from './components/alljumps/AllJumps.js'
+import ViewJump from './components/viewjump/ViewJump';
 
 
 
@@ -47,9 +48,6 @@ class App extends Component {
 
 
 
-
-
-
   render(){
 
     return (
@@ -79,11 +77,12 @@ class App extends Component {
         
 
         <Switch>
-          <Route exact path="/" render={(props) => <HomePage />} />
-          <Route exact path="/userHomepage" render={(props) => <UserHomePage />} />
-          <Route exact path="/allUserJumps" render={(props) => <AllUserJumps />} />
-          <Route exact path="/createJump" render={(props) => <CreateJump />} />
-          <Route exact path="/allJumps" render={(props) => <AllJumps />} />
+          <Route exact path="/" render={(props) => <HomePage {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/userHomepage" render={(props) =>  <UserHomePage {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/allUserJumps" render={(props) => <AllUserJumps {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/viewJump/:id" render={(props) => <ViewJump {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/createJump" render={(props) => <CreateJump {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/allJumps" render={(props) => <AllJumps {...props} theUser = {this.state.currentlyLoggedIn} />} />
         </Switch>
  
       </div>
