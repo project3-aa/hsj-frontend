@@ -1,0 +1,17 @@
+.createSkip{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border: 1px dashed rgb(33, 255, 240);
+  margin: 18px 200px;
+}
+
+.createSkip button{
+  margin-bottom: 12px;
+}
+
+#plane {
+  transform: rotate(90deg);
+  margin-top: 15px;
+}

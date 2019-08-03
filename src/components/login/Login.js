@@ -3,6 +3,7 @@ import AuthService from '../../services/AuthService';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css';
 import { Modal, Button } from 'react-materialize';
+import ('./login.css');
 
 class Login extends Component {
   constructor(props){
@@ -41,18 +42,21 @@ class Login extends Component {
       <Modal id="modal1">
       <h5>Login</h5>
           <form onSubmit = {this.tryToLogin}>
-          <legend>Username</legend>
-          <input value={this.state.usernameInput}
+          <div className="input-field col s6">
+          <i className="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" className="validate" value={this.state.usernameInput}
             name="usernameInput"
-            onChange={this.handleChange}
-          />
+             onChange={this.handleChange}/>
+          <label htmlFor="icon_prefix">First Name</label>
+        </div>
 
-          {/* <label>Password</label> */}
-          <input placeholder="Password" value={this.state.passwordInput} 
-            name="passwordInput"
-            onChange={this.handleChange}
-          />
-        <button>Submit</button>
+        <div className="input-field col s6">
+          <i className="material-icons prefix">lock</i>
+          <input id="icon_lock" type="password" className="validate" value={this.state.passwordInput} 
+               name="passwordInput" onChange={this.handleChange}/>
+          <label htmlFor="icon_lock">Password</label>
+        </div>
+        <button className="btn-floating btn-large waves-effect waves-light #5CA4A9">Login</button>
           </form>
       </Modal>
       </div>

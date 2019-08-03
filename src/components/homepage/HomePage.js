@@ -21,13 +21,13 @@ class HomePage extends Component {
     return(
       <div>
 
-        <header id="navOverlay" class="navHeader">
-          <div class="navOneLiner">
+        <header id="navOverlay" className="navHeader">
+          <div className="navOneLiner">
             <h3> We'll tell you what trip to jump to next.</h3>
           </div>
         </header>
            
-            <div id="mid-body" class= "flex-container">
+            <div id="mid-body" className= "flex-container">
             <span><em>Travel</em><br/>Reimagined</span>
             <span><em>Jump</em><br/>Where To?</span>
             <span><em>Skip</em><br/>To Cities</span>  

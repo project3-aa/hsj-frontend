@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom';
+// import {Link, NavLink} from 'react-router-dom';
 import axios from 'axios';
+import Hop from '../createhop/CreateHop.js'
+import CreateSkip from '../createskip/CreateSkip.js'
 import ('./createjump.css');
+
 
 
 class CreateJump extends Component {
@@ -10,7 +13,7 @@ class CreateJump extends Component {
     this.state = {
       newStart: "",
       newEnd: "",
-      newDuration: 0,
+      newDuration: "",
       newDescription: ""
     }
   }
@@ -56,19 +59,42 @@ class CreateJump extends Component {
   render(){
 
     return(
+      <div>
       <div className="createJump">
         <form onSubmit={this.handleFormSubmit}>
-          <label>Start:</label>
-          <input type="text" name="newStart" value={this.state.newStart} onChange={ e => this.handleChange(e)}/>
-          <label>End:</label>
-          <input type="text"  name="newEnd" value={this.state.newEnd} onChange={e => this.handleChange(e)}/>
-          <label>Duration:</label>
-          <input type="number" name="newDuration" value={this.state.newDuration} onChange={e => this.handleChange(e)}/>
-          <label>Description:</label>
-          <textarea name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)} />
-          <button>SUBMIT</button>
+
+        <div className="input-field col s6">
+          <i  id="plane" className="material-icons prefix">airplanemode_active</i>
+          <input id="icon_plane" type="text" className="validate" name="newStart" value={this.state.newStart} onChange={ e => this.handleChange(e)}/>
+          <label htmlFor="icon_plane">Start</label>
+        </div>
+
+        <div className="input-field col s6">
+          <i  id="plane" className="material-icons prefix">airplanemode_active</i>
+          <input id="icon_plane2" type="text" className="validate" name="newEnd" value={this.state.newEnd} onChange={e => this.handleChange(e)}/>
+          <label htmlFor="icon_plane2">End</label>
+        </div>
+
+        <div className="input-field col s12">
+          <input id="duration" type="number" className="validate" name="newDuration" value={this.state.newDuration} onChange={e => this.handleChange(e)}/>
+          <label htmlFor="duration">Duration (in days)</label>
+        </div>
+     
+        <div className="input-field col s12">
+          <textarea id="textarea1" className="materialize-textarea"name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)}></textarea>
+          <label htmlFor="textarea1">Textarea</label>
+        </div>
+
+          <button className="btn waves-effect waves-dark">Create Jump</button>
         </form>
       </div>
+          <div className="addButtons">
+              <button className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons">add</i></button>
+              <button className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons">add</i></button>
+          </div>
+        <CreateSkip />
+        <Hop/>
+     </div>
     )
  
   }

@@ -1,0 +1,16 @@
+.createHop{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border: 1px dashed rgb(33, 255, 240);
+  margin: 18px 200px;
+}
+
+.createHop button{
+  margin-bottom: 12px;
+}
+
+.input-field{
+  width: 800px;
+}

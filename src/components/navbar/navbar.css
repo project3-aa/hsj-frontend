@@ -9,70 +9,14 @@ nav img{
   height: 55px;
 }
 
+ul{
+  padding-right: 20px;
+}
 
 nav{
   background-image: url('/images/mapPin2.jpg');
 }
 
-
-  /*Trigger Button*/
-  .login-trigger {
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(to bottom right, #F4F1BB, #E6EBE0);
-    padding: 10px 30px;
-    border-radius: 12px 12px;;
-    position: relative; 
-    top: 50%;
-  }
-  
-  /*Modal*/
-  h4 {
-    font-weight: bold;
-    color: #fff;
-  }
-  .loginClose {
-    color: #fff;
-    transform: scale(1.2)
-  }
-  .modal-content {
-    font-weight: bold;
-    background: transparent;
-  }
-  .form-control {
-    margin: 1em 0;
-  }
-  .form-control:hover, .form-control:focus {
-    box-shadow: none;  
-    border-color: #fff;
-  }
-  .username, .password {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    border-bottom: 2px solid white;
-    padding-left: 0;
-    font-weight: normal;
-    background: transparent;  
-  }
-  .form-control::-webkit-input-placeholder {
-    color: #bbb;  
-  }
-  .form-control:focus::-webkit-input-placeholder {
-    font-weight: bold;
-    color: #bbb;
-  }
-  .login {
-    padding: 6px 20px;
-    border-radius: 12px 0px;
-    background: none;
-    border: 2px solid #5CA4A9;
-    color: white;
-    font-weight: bold;
-    transition: all .5s;
-    margin-top: 1em;
-  }
-  .login:hover {
-    background: #9BC1BC;
-    color: white;
-  }
+.btn{
+  margin-left: 12px;
+}
