@@ -14,7 +14,9 @@ class CreateJump extends Component {
       newStart: "",
       newEnd: "",
       newDuration: "",
-      newDescription: ""
+      newDescription: "",
+      createSkipVisible: false,
+      createHopVisible: false,
     }
   }
   
@@ -34,7 +36,7 @@ class CreateJump extends Component {
           newStart: "", 
           newEnd: "", 
           newDuration: 0, 
-          newDescription: ""
+          newDescription: "",
         });
     })
     .catch (error => console.log(error))
@@ -42,10 +44,17 @@ class CreateJump extends Component {
 
 
 
-    handleChange = (event) => {  
+  handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
       console.log(this.state)
+  }
+   
+  onClick (){
+    this.setState({createSkipVisible: !this.state.createSkipVisible})
+  }
+  onClick2 () {
+    this.setState({createHopVisible: !this.state.createHopVisible})
   }
   
 
@@ -61,6 +70,8 @@ class CreateJump extends Component {
     return(
       <div>
       <div className="createJump">
+        </div>
+        <div className="move">
         <form onSubmit={this.handleFormSubmit}>
 
         <div className="input-field col s6">
@@ -87,13 +98,24 @@ class CreateJump extends Component {
 
           <button className="btn waves-effect waves-dark">Create Jump</button>
         </form>
-      </div>
-          <div className="addButtons">
-              <button className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons">add</i></button>
-              <button className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons">add</i></button>
+        </div>
+          
+          <div>
+            <div onClick={() => this.onClick()}>
+            <button className="btn-floating btn-small  black"><i className="material-icons">add</i></button>
+            {this.state.createSkipVisible ? <CreateSkip/>: null}
+            </div>
+            </div>
+
+            <div>
+            <div onClick={() => this.onClick2()}>
+            <button className="btn-floating btn-small  green"><i className="material-icons">add</i></button>
+            {this.state.createHopVisible ? <Hop/>: null}
+            </div>
           </div>
-        <CreateSkip />
-        <Hop/>
+      
+          
+      
      </div>
     )
  

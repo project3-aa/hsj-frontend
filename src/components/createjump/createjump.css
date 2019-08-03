@@ -1,13 +1,19 @@
 .createJump{
-  display: flex;
-  justify-content: center;
-  /* flex-direction: column; */
-  margin-top: 20px;
-  margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    background-image: url(/images/boardingPass.png);
+    background-repeat: no-repeat;
+    height: 600px;
+    background-size: contain;
+    margin-left: 160px;
 }
-
+.move {
+  margin-top: -600px;
+  margin-left: 190px;
+  margin-bottom: 250px;
+}
 .input-field{
-  width: 800px;
+  width: 700px;
 }
 
 #plane {
@@ -22,4 +28,10 @@
 
 .addButtons button{
  margin-right: 12px;
+}
+
+.buttonAlign {
+  display: flex;
+  justify-content: center;
+  margin-top: -150px;
 }
