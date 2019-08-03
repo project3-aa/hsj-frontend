@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Route, Link, Switch} from 'react-router-dom';
-import Signup from './components/signup/Signup.js';
-import Login from './components/login/Login.js';
+// import Signup from './components/signup/Signup.js';
+// import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks
 import AuthService from './services/AuthService.js';
 import Navbar from './components/navbar/Navbar.js';
@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = { 
-      listOfProjects: [],
+      // listOfProjects: [],
       currentlyLoggedIn: null,
       ready: false,
       // signupShowing: false,

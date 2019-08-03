@@ -32,7 +32,7 @@ class Login extends Component {
 
 
   render(){
-    console.log("this is the props ---- ", this.props);
+    // console.log("this is the props ---- ", this.props);
     
     return(
     <div>
