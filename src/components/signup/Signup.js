@@ -8,7 +8,7 @@ class Signup extends Component {
     super(props);
     this.state = { usernameInput: '', passwordInput: '' };
     this.service = new AuthService();
-  }
+  } 
 
   handleChange = (e) =>{
       this.setState({[e.target.name]: e.target.value})
@@ -30,6 +30,7 @@ class Signup extends Component {
   
 
   render(){
+    console.log(this.state)
     return(
       <div>
       <Button href="#modal2" className="modal-trigger">

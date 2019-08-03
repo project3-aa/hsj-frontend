@@ -13,8 +13,9 @@ class UserHomepage extends Component {
     }
   }
 
-  getAllUserJumps(){
-  axios.get('http://localhost:5000/api/jump/userJumps/5d40c82e9fe55865bc313284')
+  getAllUserJumps(id){
+    
+  axios.get(`http://localhost:5000/api/jump/userJumps/${id}`)
     .then((allTheJumps) => {
       this.setState({userJumps: allTheJumps.data});
     })
@@ -26,7 +27,7 @@ class UserHomepage extends Component {
 
 
     componentDidMount(){
-      this.getAllUserJumps();
+      this.getAllUserJumps(this.props.theUser._id);
     }
 
     showAllUserJumps = () => {

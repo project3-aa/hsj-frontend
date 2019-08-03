@@ -26,12 +26,13 @@ function Navbar(props){
         <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to='/userHomepage'>User Homepage</Link></li>
             <li><Login {...props} getUser = {props.getUser} /></li>
-            <li><Signup /></li>
+            <li><Signup {...props} getUser = {props.getUser} /></li>
             <button className="btn" onClick = {doTheLogout} >Log Out </button>
         </ul>
         </div>
      </nav>
      </div>
+
 
 
 
