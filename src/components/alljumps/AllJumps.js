@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom';
-import axios from 'axios';
+// import {Link, NavLink} from 'react-router-dom';
+// import axios from 'axios';
 import ('./alljumps.css');
 
 

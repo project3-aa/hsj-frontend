@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Route, Link, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 // import Signup from './components/signup/Signup.js';
 // import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks

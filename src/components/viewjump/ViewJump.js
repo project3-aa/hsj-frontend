@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 // import {Link, NavLink} from 'react-router-dom';
-import DisplaySkip from '../displayskip/DisplaySkip'
+import DisplaySkip from '../displayskip/DisplaySkip.js'
 import axios from 'axios';
-// import ('./createjump.css');
+import './viewjump.css'
 
 
 class ViewJump extends Component{
@@ -10,7 +10,7 @@ class ViewJump extends Component{
   constructor(props){
     super(props)
     this.state = {
-      theJump: [],
+      theJump: null,
     }
   }
 
@@ -29,16 +29,20 @@ class ViewJump extends Component{
 
     componentDidMount(){
       this.getSingleJumpInfo();
-      console.log(this.props.match.params.id)
+      // console.log(this.props.match.params.id)
     }
 
+    createTitle(){
+      return <h1>Jump Title: {this.state.theJump.skip[0].city} ===>>> {this.state.theJump.skip[this.state.theJump.skip.length -1].city}</h1>
+    }
+    
     
 
   //remember (de)?populate
     renderSkips(){
       if(this.state.theJump.skip){
         return this.state.theJump.skip.map((skip)=>{
-          return <DisplaySkip theSkipInfo={skip} theUser={this.props.theUser}></DisplaySkip>
+          return <DisplaySkip key={skip._id} theSkipInfo={skip} theUser={this.props.theUser}></DisplaySkip>
         })
       } else {
         return null
@@ -47,15 +51,15 @@ class ViewJump extends Component{
   //call the AXIOS EDIT ROUTE in HERE and pass the method down as a PROP
 
   render(){
-    // console.log('this is the state IN JUMP',this.state.theJump)
+    // console.log('THE SKIP',this.state.theJump.skip[0])
+    if(this.state.theJump){
     return(
-
       <div>
-        <h1>This is a single Jump!</h1>
+        {this.createTitle()}
 
         <div>
-          <h3>This jump starts at -----{this.state.theJump.start}</h3>
-          <h3>And ends at.......{this.state.theJump.end}</h3>
+          <h5>Flew out of: {this.state.theJump.start}</h5>
+          <h5>And returned to: {this.state.theJump.end}</h5>
           <h3>It took {this.state.theJump.duration} days total</h3>
           <h3>{this.state.theJump.description}</h3>
         </div>
@@ -65,8 +69,10 @@ class ViewJump extends Component{
         </div>
       </div>
     )
+    } else {
+      return (<h1>Loading your Jump!</h1>)
+    }
   }
-
 
 
 

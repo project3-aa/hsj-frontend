@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from '../../services/AuthService';
-import { Link } from 'react-router-dom';
-import M from 'materialize-css';
+// import { Link } from 'react-router-dom';
+import 'materialize-css';
 import { Modal, Button } from 'react-materialize';
 import ('./login.css');
 
