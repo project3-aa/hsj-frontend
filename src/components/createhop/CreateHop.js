@@ -14,18 +14,18 @@ class CreateHop extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
-    axios.post("http://localhost:5000/api/jump/newJump", {
-      newCity: this.state.theAttraction,
-      newArrive: this.state.theMot,
-      newDescription: this.state.hopDescription,
+    axios.post("http://localhost:5000/api/hop/newHop", {
+      theAttraction: this.state.newHopAttraction,
+      theMot: this.state.newHopMot,
+      hopDescription: this.state.newHopDescription,
     }, {withCredentials: true})
     .then(() => {
       // this.props.getData(); <= we didnt need this because we get the date another way...
       //this function updates something
         this.setState({
-          newPoi: "",
-          newArrive: "",
-          newDecription: "",
+          newHopAttraction: "",
+          newHopMot: "",
+          newHopDescription: "",
         });
     })
     .catch (error => console.log(error))
@@ -41,20 +41,21 @@ class CreateHop extends Component {
   render() {
     return (
       <div className="createHop">
+        <h3> CreateHop </h3>
         <form onSubmit={this.handleFormSubmit}>
 
         <div className="input-field col s12">
-          <input id="poi" type="text" className="validate" name="newPoi" value={this.state.newPoi} onChange={ e => this.handleChange(e)}/>
+          <input id="poi" type="text" className="validate" name="newHopAttraction" value={this.state.newHopAttraction} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="poi">Point OF Interest</label>
         </div>
         
         <div className="input-field col s12">
-         <input id="mot" type="text" className="validate" name="newMot" value={this.state.newArrive} onChange={ e => this.handleChange(e)}/>
+         <input id="mot" type="text" className="validate" name="newHopMot" value={this.state.newHopMot} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="mot">Method OF Transportation</label>
         </div>
 
         <div className="input-field col s12">
-          <textarea id="textarea2" className="materialize-textarea" name="hopDescription" value={this.state.hopDescription} onChange={ e => this.handleChange(e)}/>
+          <textarea id="textarea2" className="materialize-textarea" name="newHopDescription" value={this.state.newHopDescription} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="textarea2">Describe Your Adventure</label>
         </div>
         <button className="btn">Add Hop</button>

@@ -76,24 +76,24 @@ class CreateJump extends Component {
 
         <div className="input-field col s6">
           <i  id="plane" className="material-icons prefix">airplanemode_active</i>
-          <input id="icon_plane" type="text" className="validate" name="newStart" value={this.state.newStart} onChange={ e => this.handleChange(e)}/>
+          <input id="icon_plane" type="text" className="validate" name="newStart" value={this.state.newStart} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="icon_plane">Start</label>
         </div>
 
         <div className="input-field col s6">
           <i  id="plane" className="material-icons prefix">airplanemode_active</i>
-          <input id="icon_plane2" type="text" className="validate" name="newEnd" value={this.state.newEnd} onChange={e => this.handleChange(e)}/>
+          <input id="icon_plane2" type="text" className="validate" name="newEnd" value={this.state.newEnd} onChange={e => this.handleChange(e)} required/>
           <label htmlFor="icon_plane2">End</label>
         </div>
 
         <div className="input-field col s12">
-          <input id="duration" type="number" className="validate" name="newDuration" value={this.state.newDuration} onChange={e => this.handleChange(e)}/>
+          <input id="duration" type="number" className="validate" name="newDuration" value={this.state.newDuration} onChange={e => this.handleChange(e)} required/>
           <label htmlFor="duration">Duration (in days)</label>
         </div>
      
         <div className="input-field col s12">
-          <textarea id="textarea1" className="materialize-textarea"name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)}></textarea>
-          <label htmlFor="textarea1">Textarea</label>
+          <textarea id="textarea1" className="materialize-textarea"name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)} required/>
+          <label htmlFor="textarea1">Description</label>
         </div>
 
           <button className="btn waves-effect waves-dark">Create Jump</button>
@@ -101,15 +101,21 @@ class CreateJump extends Component {
         </div>
           
           <div>
-            <div onClick={() => this.onClick()}>
-            <button className="btn-floating btn-small  black"><i className="material-icons">add</i></button>
+            <div>
+            <button className="btn-floating btn-small  black"><i className="material-icons"  onClick={() => this.onClick()}>add</i></button>
             {this.state.createSkipVisible ? <CreateSkip/>: null}
             </div>
+
+            {/* <div>
+            <button className="btn-floating btn-small  black"><i className="material-icons"  onClick={() => this.onClick()}>add</i></button>
+            {this.state.createSkipVisible ? <CreateSkip/>: null}
+            </div> */}
+
             </div>
 
             <div>
-            <div onClick={() => this.onClick2()}>
-            <button className="btn-floating btn-small  green"><i className="material-icons">add</i></button>
+            <div>
+            <button className="btn-floating btn-small  green"><i className="material-icons" onClick={() => this.onClick2()}>add</i></button>
             {this.state.createHopVisible ? <Hop/>: null}
             </div>
           </div>
