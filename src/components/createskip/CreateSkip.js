@@ -76,6 +76,21 @@ class CreateSkip extends Component {
                 <input id="arriveBy" type="text" className="validate" name="newSkipArrive" value={this.state.newSkipArrive} onChange={e => this.handleChange(e)} required/>
                 <label htmlFor="arriveBy">Arrived By</label>
               </div>
+
+                 {/* <Select name="newSkipArrive" value={this.state.newSkipArrive} onChange={this.handleChange} required> 
+                  <option value="" disabled>
+                  Arrived By:
+                  </option>
+                  <option value="1">
+                  Car
+                  </option>
+                  <option value="2">
+                  Train
+                  </option>
+                  <option value="3">
+                  Boat
+                  </option>
+                  </Select> */}
               
               <div className="input-field col s12">
                 <input id="skipDuration" type="number" className="validate" name="newSkipDuration" value={this.state.newSkipDuration} onChange={e => this.handleChange(e)} required/>
