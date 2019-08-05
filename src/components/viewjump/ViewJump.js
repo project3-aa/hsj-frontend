@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import DisplaySkip from '../displayskip/DisplaySkip.js'
 import axios from 'axios';
 import './viewjump.css'
+import EditSkip from '../editskip/EditSkip.js';
+import CreateSkip from '../createskip/CreateSkip.js';
 
 
 class ViewJump extends Component{
@@ -29,16 +31,18 @@ class ViewJump extends Component{
 
     componentDidMount(){
       this.getSingleJumpInfo();
-      // console.log(this.props.match.params.id)
     }
 
     createTitle(){
+      let skipLength = Object.keys(this.state.theJump.skip).length
+      if(skipLength > 1){
       return <h1>Jump Title: {this.state.theJump.skip[0].city} ===>>> {this.state.theJump.skip[this.state.theJump.skip.length -1].city}</h1>
+      } else {
+        return <h1>Let's add at least two skips! Your first and last skip will be where your trip really starts and ends. </h1>
+      }
     }
     
-    
-
-  //remember (de)?populate
+  
     renderSkips(){
       if(this.state.theJump.skip){
         return this.state.theJump.skip.map((skip)=>{
@@ -48,10 +52,23 @@ class ViewJump extends Component{
         return null
       }
     }
+
+    renderSkipEdit(){
+      if(this.state.theJump.skip[0] && this.props.theUser._id === this.state.theJump.ownerId){
+        return <EditSkip jumpOwner={this.state.theJump._id} />
+      } else {
+        return null
+      }
+    }
+
+    renderSkipAdd(){
+      if(this.state.theJump && this.props.theUser._id === this.state.theJump.ownerId) {
+        return <CreateSkip jumpOwner={this.state.theJump._id} />
+      }
+    }
   //call the AXIOS EDIT ROUTE in HERE and pass the method down as a PROP
 
   render(){
-    // console.log('THE SKIP',this.state.theJump.skip[0])
     if(this.state.theJump){
     return(
       <div>
@@ -65,7 +82,8 @@ class ViewJump extends Component{
         </div>
         {this.renderSkips()}
         <div>
-          {/* <DisplaySkip theSkipInfo = {this.state.theJump.skip} /> */}
+        {this.renderSkipEdit()}
+        {this.renderSkipAdd()}
         </div>
       </div>
     )

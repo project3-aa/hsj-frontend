@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 // import Signup from './components/signup/Signup.js';
 // import Login from './components/login/Login.js';
 // import axios from 'axios'; //uncomment this out when we start using axios, if not the app breaks
@@ -80,7 +80,20 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" render={(props) => <HomePage {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/userHomepage" render={(props) =>  <UserHomePage {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/userHomepage" render={(props) => {
+            if(this.state.currentlyLoggedIn)
+            return(
+              <UserHomePage 
+              {...props} 
+              theUser = {this.state.currentlyLoggedIn} 
+              ready = {this.state.ready} 
+              /> 
+              ) 
+              else 
+              return (
+                <Redirect to='/' />
+              )
+              }}/>
           <Route exact path="/allUserJumps" render={(props) => <AllUserJumps {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
           <Route exact path="/viewJump/:id" render={(props) => <ViewJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
           <Route exact path="/createJump" render={(props) => <CreateJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />

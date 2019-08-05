@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 // import {Link, NavLink} from 'react-router-dom';
 import axios from 'axios';
+// import ('./createskip.css');
 import 'materialize-css';
 import { Modal, Button } from 'react-materialize';
-import './createskip.css';
 
 
 
 
-class CreateSkip extends Component {
+class EditSkip extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -27,13 +27,10 @@ class CreateSkip extends Component {
       skipArrive: this.state.newSkipArrive,
       skipDuration: this.state.newSkipDuration,
       skipDescription: this.state.newSkipDescription,
-      theJump: this.props.jumpOwner
     }, {withCredentials: true})
     .then(() => {
       // this.props.getData(); <= we didnt need this because we get the date another way...
       //this function updates something
-
-      console.log('we just created a skip-=-=-=-=-=-=-=-=-=-');
         this.setState({
           newSkipCity: "", 
           newSkipArrive: "", 
@@ -53,17 +50,16 @@ class CreateSkip extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div>
           <div>
-          <Button href="#modal3" className="modal-trigger">
-          CreateSkip
+          <Button href="#modal4" className="modal-trigger">
+          EditSkip
           </Button>
-          <Modal id="modal3">   
+          <Modal id="modal4">   
       <div>
-         <h3>CreateSkip</h3>
-          <div className="createSkip">
+         <h3>Edit Skip</h3>
+          <div className="editSkip">
 
             <form onSubmit={this.handleFormSubmit}>
 
@@ -99,4 +95,4 @@ class CreateSkip extends Component {
   }
 }
 
-export default CreateSkip;
+export default EditSkip;
