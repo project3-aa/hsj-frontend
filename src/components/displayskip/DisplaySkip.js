@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DisplayHop from '../displayhop/DisplayHop.js'
+import CreateHop from '../createhop/CreateHop.js'
 import './displayskip.css'
 
 
@@ -33,6 +34,13 @@ class DisplaySkip extends Component{
     }
   }
 
+  renderHopAdd(){
+    console.log('for render hop addddddd',this.props)
+    if(this.props.theSkipInfo && this.props.theUser._id === this.props.jumpOwner) {
+      return <CreateHop hopOwner={this.props.theSkipInfo._id} />
+    }
+  }
+
   // renderEditButton = () =>{
   //   console.log('THere should be an edit buton here===========',this.props.theUser,  this.props.theSkipInfo, this.props.theUser._id);
   //   if(this.props.theUser && this.props.theSkipInfo.ownerId === this.props.theUser._id){
@@ -55,6 +63,7 @@ class DisplaySkip extends Component{
         <h5>Days Spent: {this.props.theSkipInfo.duration}</h5>
         <h5>How it went: {this.props.theSkipInfo.description}</h5>
         {this.renderHops()}
+        {this.renderHopAdd()}
         {/* {this.returnHops()} */}
       </div>
     )

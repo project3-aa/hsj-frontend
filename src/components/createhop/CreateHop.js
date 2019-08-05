@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { Modal, Button } from 'react-materialize';
 import axios from 'axios';
-import ('./createhop.css')
+import './createhop.css'
     
 class CreateHop extends Component {
   constructor(props){
@@ -15,13 +16,12 @@ class CreateHop extends Component {
     event.preventDefault();
     console.log(this.state);
     axios.post("http://localhost:5000/api/hop/newHop", {
-      theAttraction: this.state.newHopAttraction,
-      theMot: this.state.newHopMot,
-      hopDescription: this.state.newHopDescription,
+      poi: this.state.newHopAttraction,
+      arrivedBy: this.state.newHopMot,
+      description: this.state.newHopDescription,
+      hopOwner: this.props.hopOwner
     }, {withCredentials: true})
     .then(() => {
-      // this.props.getData(); <= we didnt need this because we get the date another way...
-      //this function updates something
         this.setState({
           newHopAttraction: "",
           newHopMot: "",
@@ -40,6 +40,12 @@ class CreateHop extends Component {
 
   render() {
     return (
+      <div>
+          <div>
+          <Button href="#modal3" className="modal-trigger">
+          Create new Hop
+          </Button>
+          <Modal id="modal3">  
       <div className="createHop">
         <h3> CreateHop </h3>
         <form onSubmit={this.handleFormSubmit}>
@@ -61,6 +67,9 @@ class CreateHop extends Component {
         <button className="btn">Add Hop</button>
         </form>
       </div>
+      </Modal>
+      </div>
+    </div>
     )
   }
 }

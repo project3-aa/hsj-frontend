@@ -30,8 +30,16 @@ class UserHomepage extends Component {
       this.getAllUserJumps(this.props.theUser._id);
     }
 
+ 
+
     showAllUserJumps = () => {
       return this.state.userJumps.map((eachJump) => {
+
+
+        // let skipLength = Object.keys(eachJump.skip).length
+        // if(skipLength > 1){
+        // return <h1>Jump Title: {eachJump.skip[0].city} ===>>> {eachJump.skip[eachJump.skip.length -1].city}</h1>
+        // }
 
         return <div key={eachJump._id} className='each-jump'>
                 <div className='jump-desc'>

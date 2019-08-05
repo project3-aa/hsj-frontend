@@ -58,7 +58,7 @@ class CreateSkip extends Component {
       <div>
           <div>
           <Button href="#modal3" className="modal-trigger">
-          CreateSkip
+          Create new Skip
           </Button>
           <Modal id="modal3">   
       <div>

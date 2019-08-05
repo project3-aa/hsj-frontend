@@ -32,6 +32,7 @@ class ViewJump extends Component{
     componentDidMount(){
       this.getSingleJumpInfo();
     }
+    
 
     createTitle(){
       let skipLength = Object.keys(this.state.theJump.skip).length
@@ -46,7 +47,7 @@ class ViewJump extends Component{
     renderSkips(){
       if(this.state.theJump.skip){
         return this.state.theJump.skip.map((skip)=>{
-          return <DisplaySkip key={skip._id} theSkipInfo={skip} theUser={this.props.theUser}></DisplaySkip>
+          return <DisplaySkip key={skip._id} theSkipInfo={skip} theUser={this.props.theUser} jumpOwner={this.state.theJump.ownerId}></DisplaySkip>
         })
       } else {
         return null
@@ -69,6 +70,7 @@ class ViewJump extends Component{
   //call the AXIOS EDIT ROUTE in HERE and pass the method down as a PROP
 
   render(){
+ 
     if(this.state.theJump){
     return(
       <div>
@@ -88,7 +90,7 @@ class ViewJump extends Component{
       </div>
     )
     } else {
-      return (<h1>Loading your Jump!</h1>)
+      return null;
     }
   }
 
