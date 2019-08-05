@@ -20,7 +20,6 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = { 
-      // listOfProjects: [],
       currentlyLoggedIn: null,
       ready: false,
       // signupShowing: false,
@@ -34,33 +33,36 @@ class App extends Component {
   }
 
   
-   getCurrentlyLoggedInUser = () =>{
+   getCurrentlyLoggedInUser = (f) =>{
     this.service.currentUser()
     .then((theUser)=>{
-      this.setState({currentlyLoggedIn: theUser})
+      this.setState({currentlyLoggedIn: theUser}, ()=>{
+        if(f){f()};
+      })
     })
     .catch(()=>{
       this.setState({currentlyLoggedIn: null})
     })
    }
 
+    componentDidMount() {
+      this.getCurrentlyLoggedInUser();
+    }
 
 
 
 
   render(){
-
+    console.log("the state in the app js ================ ", this.state)
     return (
         <div className="App">
         
-
-        <Navbar 
+        <Route path='/' render={(props)=>  <Navbar {...props}
         theUser = {this.state.currentlyLoggedIn} 
         pleaseLogOut = {()=> this.service.logout()}
         // toggleForm = {this.toggleForm}
-        getUser = {this.getCurrentlyLoggedInUser}
-
-        />
+        getUser = {this.getCurrentlyLoggedInUser} /> } />
+       
 
         {/* {this.state.signupShowing &&  */}
         {/* <Signup getUser = {this.getCurrentlyLoggedInUser}
@@ -78,11 +80,11 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" render={(props) => <HomePage {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/userHomepage" render={(props) =>  <UserHomePage {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/allUserJumps" render={(props) => <AllUserJumps {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/viewJump/:id" render={(props) => <ViewJump {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/createJump" render={(props) => <CreateJump {...props} theUser = {this.state.currentlyLoggedIn} />} />
-          <Route exact path="/allJumps" render={(props) => <AllJumps {...props} theUser = {this.state.currentlyLoggedIn} />} />
+          <Route exact path="/userHomepage" render={(props) =>  <UserHomePage {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/allUserJumps" render={(props) => <AllUserJumps {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/viewJump/:id" render={(props) => <ViewJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/createJump" render={(props) => <CreateJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/allJumps" render={(props) => <AllJumps {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
         </Switch>
  
       </div>

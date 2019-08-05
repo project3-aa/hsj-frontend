@@ -23,16 +23,18 @@ class Login extends Component {
     
       this.service.login(uName, pWord)
       .then(()=>{
-          // this.props.toggleForm('login'); //Should I be setting the state back to empty?
-          this.props.getUser();
-          
+        console.log("the props ------- ", this.props);
+          this.props.getUser(
+            ()=>{
+            this.props.history.push('/userHomepage')
+          }
+          );  
       })
-
   }
 
 
+
   render(){
-    // console.log("this is the props ---- ", this.props);
     
     return(
     <div>
@@ -56,40 +58,10 @@ class Login extends Component {
                name="passwordInput" onChange={this.handleChange}/>
           <label htmlFor="icon_lock">Password</label>
         </div>
-        <button className="btn-floating btn-large waves-effect waves-light #5CA4A9">Login</button>
+        <button type= "submit" className="btn-floating btn-large waves-effect waves-light #5CA4A9">Login</button>
           </form>
       </Modal>
       </div>
-
-
-
-    //   <div>
-    //   <form onSubmit = {this.tryToLogin}>
-
-    //       <h3>Login</h3>
-
-    //       <legend>Username</legend>
-    //       <input value={this.state.usernameInput}
-    //         name="usernameInput"
-    //         onChange={this.handleChange}
-    //       />
-
-    //       <legend>Password</legend>
-    //       <input value={this.state.passwordInput} 
-    //         name="passwordInput"
-    //         onChange={this.handleChange}
-    //       />
-
-
-
-    //     <button>Submit</button>
-
-    //   </form>
-       
-    //   <p>Already have account? 
-    //     <Link to={"/"}> Login</Link>
-    //   </p>
-    // </div>
       
     )
   }

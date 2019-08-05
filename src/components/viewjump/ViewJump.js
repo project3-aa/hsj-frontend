@@ -19,7 +19,7 @@ class ViewJump extends Component{
   getSingleJumpInfo(){
     axios.get('http://localhost:5000/api/jump/details/' + this.props.match.params.id)
       .then((theSingleJump) => {
-        console.log('THIS IS FOR EDUARDOOOO',theSingleJump.data)
+        console.log(theSingleJump.data)
         this.setState({theJump: theSingleJump.data});
       })
       .catch((err) => {
