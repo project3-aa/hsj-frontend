@@ -30,7 +30,6 @@ class Signup extends Component {
   
 
   render(){
-    console.log(this.state)
     return(
       <div>
       <Button href="#modal2" className="modal-trigger">

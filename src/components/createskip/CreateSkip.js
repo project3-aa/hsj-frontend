@@ -57,10 +57,10 @@ class CreateSkip extends Component {
     return (
       <div>
           <div>
-          <Button href="#modal3" className="modal-trigger">
+          <Button href="#modal5" className="modal-trigger">
           Create new Skip
           </Button>
-          <Modal id="modal3">   
+          <Modal id="modal5">   
       <div>
          <h3>CreateSkip</h3>
           <div className="createSkip">

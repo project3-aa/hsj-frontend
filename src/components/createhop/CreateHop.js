@@ -14,7 +14,7 @@ class CreateHop extends Component {
   }
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    console.log('this is the id that will be used to create the hop!!!',this.props.hopOwner);
     axios.post("http://localhost:5000/api/hop/newHop", {
       poi: this.state.newHopAttraction,
       arrivedBy: this.state.newHopMot,
@@ -42,12 +42,12 @@ class CreateHop extends Component {
     return (
       <div>
           <div>
-          <Button href="#modal3" className="modal-trigger">
+          <Button href={`#${this.props.hopOwner}`} className="modal-trigger">
           Create new Hop
           </Button>
-          <Modal id="modal3">  
+          <Modal id={this.props.hopOwner}>  
       <div className="createHop">
-        <h3> CreateHop </h3>
+        <h3> CreateHop for {this.props.hopOwner}</h3>
         <form onSubmit={this.handleFormSubmit}>
 
         <div className="input-field col s12">

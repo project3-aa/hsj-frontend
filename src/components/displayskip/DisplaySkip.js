@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
-import DisplayHop from '../displayhop/DisplayHop.js'
-import CreateHop from '../createhop/CreateHop.js'
-import './displayskip.css'
+import React, { Component } from "react";
+import DisplayHop from "../displayhop/DisplayHop.js";
+import CreateHop from "../createhop/CreateHop.js";
+import axios from "axios";
+import "./displayskip.css";
 
-
-class DisplaySkip extends Component{
-
-  constructor(props){
-    super(props)
+class DisplaySkip extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       theSkip: this.props.theSkipInfo,
       editable: false
-    }
+    };
   }
 
   // returnHops = () =>{
@@ -24,21 +23,46 @@ class DisplaySkip extends Component{
   //   }
   // }
 
-  renderHops(){
-    if(this.props.theSkipInfo.hop){
-      return this.props.theSkipInfo.hop.map((hop)=>{
-        return <DisplayHop key={hop._id} theHopInfo={hop} theUser={this.props.theUser}></DisplayHop>
-      })
+  renderHops() {
+    if (this.props.theSkipInfo.hop) {
+      return this.props.theSkipInfo.hop.map(hop => {
+        return (
+          <DisplayHop
+            key={hop._id}
+            theHopInfo={hop}
+            theUser={this.props.theUser}
+            hopOwner={this.props.theSkipInfo._id}
+          />
+        );
+      });
     } else {
-      return null
+      return null;
     }
   }
 
-  renderHopAdd(){
-    console.log('for render hop addddddd',this.props)
-    if(this.props.theSkipInfo && this.props.theUser._id === this.props.jumpOwner) {
-      return <CreateHop hopOwner={this.props.theSkipInfo._id} />
+  renderHopAdd() {
+    if (
+      this.props.theSkipInfo &&
+      this.props.theUser._id === this.props.jumpOwner
+    ) {
+      return <CreateHop hopOwner={this.props.theSkipInfo._id} />;
     }
+  }
+
+  deleteSkip(id) {
+    axios
+      .post(
+        "http://localhost:5000/api/skip/deleteSkip/" +
+          this.props.jumpId +
+          "/" +
+          id
+      )
+      .then(theJumpToDelete => {
+        //redirect in here
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   // renderEditButton = () =>{
@@ -50,13 +74,11 @@ class DisplaySkip extends Component{
   //   }
   // }
 
-  render(){
+  render() {
     // console.log('this is the skip info----',this.props.theSkipInfo) //<<<<this returns info!!!!!!
     // console.log('the state-----',this.state);
-
-    return(
-
-      <div>
+    return (
+      <div className="eachskip">
         {/* {this.renderEditButton()} */}
         <h5>{this.props.theSkipInfo.city}</h5>
         <h5>Arrived by: {this.props.theSkipInfo.arrivedBy}</h5>
@@ -64,9 +86,17 @@ class DisplaySkip extends Component{
         <h5>How it went: {this.props.theSkipInfo.description}</h5>
         {this.renderHops()}
         {this.renderHopAdd()}
+        <button
+          onClick={() => {
+            this.deleteSkip(this.props.theSkipInfo._id);
+          }}
+        >
+          Delete Skip
+        </button>
+        {/* {this.deleteSkip(this.props.theSkipInfo._id)} */}
         {/* {this.returnHops()} */}
       </div>
-    )
+    );
   }
 }
 

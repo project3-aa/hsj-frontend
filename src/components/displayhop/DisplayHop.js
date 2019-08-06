@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from "axios";
 import './displayhop.css'
 
 
@@ -12,8 +13,18 @@ class DisplayHop extends Component{
   }
 
 
+  deleteHop(id) {
+    axios.post("http://localhost:5000/api/hop/deleteHop/" + this.props.hopOwner + "/" + id)
+      .then(theHopToDelete => {
+        //redirect in here
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+
   render(){
-    console.log('HOP INFO', this.props.theHopInfo)
     return(
 
       <div>
@@ -22,7 +33,13 @@ class DisplayHop extends Component{
       <li>Arrived by: {this.props.theHopInfo.arrivedBy}</li>
       <li>How it went: {this.props.theHopInfo.description}</li>
       </ul>
-
+      <button
+          onClick={() => {
+            this.deleteHop(this.props.theHopInfo._id);
+          }}
+        >
+          Delete Hop
+        </button>
       </div>
     )
   }
