@@ -12,8 +12,9 @@ import AllUserJumps from './components/alluserjumps/AllUserJumps.js';
 import CreateJump from './components/createjump/CreateJump.js'
 import AllJumps from './components/alljumps/AllJumps.js'
 import ViewJump from './components/viewjump/ViewJump';
-
-
+import EditJump from './components/editjump/EditJump'
+import EditSkip from './components/editskip/EditSkip';
+import EditHop from './components/editHop/EditHop'
 
 class App extends Component {
 
@@ -97,8 +98,11 @@ class App extends Component {
           <Route exact path="/viewJump/:id" render={(props) => <ViewJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
           <Route exact path="/createJump" render={(props) => <CreateJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
           <Route exact path="/allJumps" render={(props) => <AllJumps {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready} />} />
+          <Route exact path="/editJump/:id" render={(props) => <EditJump {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready}/>} />
+          <Route exact path="/editSkip/:id" render={(props) => <EditSkip {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready}/>} />
+          <Route exact path="/editHop/:id" render={(props) => <EditHop {...props} theUser = {this.state.currentlyLoggedIn} ready = {this.state.ready}/>} />
         </Switch>
- 
+  
       </div>
     );
   }

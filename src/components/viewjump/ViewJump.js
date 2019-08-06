@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import DisplaySkip from "../displayskip/DisplaySkip.js";
 import axios from "axios";
 import "./viewjump.css";
@@ -95,7 +95,7 @@ class ViewJump extends Component {
         "http://localhost:5000/api/jump/deleteJump/" + this.state.theJump._id
       )
       .then(theJumpToDelete => {
-        console.log("sucessfully deleted", theJumpToDelete);
+        // console.log("sucessfully deleted", theJumpToDelete);
         //redirect in here
       })
       .catch(err => {
@@ -120,6 +120,7 @@ class ViewJump extends Component {
             {/* {this.renderSkipEdit()} */}
             {this.renderSkipAdd()}
           </div>
+          <button> <Link to={`/editJump/${this.state.theJump._id}`}>Edit This Jump</Link></button>
           <button
           onClick={() => {
             this.deleteJump();

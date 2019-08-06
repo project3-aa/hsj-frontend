@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DisplayHop from "../displayhop/DisplayHop.js";
 import CreateHop from "../createhop/CreateHop.js";
+import {Link} from 'react-router-dom';
 import axios from "axios";
 import "./displayskip.css";
 
@@ -84,9 +85,19 @@ class DisplaySkip extends Component {
         <h5>Arrived by: {this.props.theSkipInfo.arrivedBy}</h5>
         <h5>Days Spent: {this.props.theSkipInfo.duration}</h5>
         <h5>How it went: {this.props.theSkipInfo.description}</h5>
+        <button><Link to={{
+          pathname: `/editSkip/${this.props.theSkipInfo}`, 
+          state: {
+            skipId: this.props.theSkipInfo._id,
+            city: this.props.theSkipInfo.city,
+            arrivedBy: this.props.theSkipInfo.arrivedBy,
+            duration: this.props.theSkipInfo.duration, 
+            description: this.props.theSkipInfo.description
+          }}
+        }>Edit This Skip</Link></button>
         {this.renderHops()}
         {this.renderHopAdd()}
-        <button
+        <button>
           onClick={() => {
             this.deleteSkip(this.props.theSkipInfo._id);
           }}

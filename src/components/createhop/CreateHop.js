@@ -14,7 +14,7 @@ class CreateHop extends Component {
   }
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log('this is the id that will be used to create the hop!!!',this.props.hopOwner);
+    // console.log('this is the id that will be used to create the hop!!!',this.props.hopOwner);
     axios.post("http://localhost:5000/api/hop/newHop", {
       poi: this.state.newHopAttraction,
       arrivedBy: this.state.newHopMot,
@@ -34,7 +34,7 @@ class CreateHop extends Component {
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
-    console.log(this.state)
+    // console.log(this.state)
   }
 
 

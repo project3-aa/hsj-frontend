@@ -41,23 +41,23 @@ class Signup extends Component {
             
           <div className="input-field col s6">
           <i className="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" className="validate" value={this.state.usernameInput}
+          <input id="signupIcon" type="text" className="validate" autoComplete="username" value={this.state.usernameInput}
             name="usernameInput"
              onChange={this.handleChange}/>
-          <label htmlFor="icon_prefix">Username</label>
+          <label htmlFor="signupIcon">Username</label>
         </div>
 
         <div className="input-field col s6">
           <i className="material-icons prefix">lock</i>
-          <input id="icon_lock" type="password" className="validate" value={this.state.passwordInput} 
+          <input id="signupLock" type="password" className="validate" autoComplete="new-password" value={this.state.passwordInput} 
                name="passwordInput" onChange={this.handleChange}/>
-          <label htmlFor="icon_lock">Password</label>
+          <label htmlFor="signupIcon">Password</label>
         </div>
 
         <div className="input-field col s6">
           <i className="material-icons prefix">lock</i>
-          <input id="icon_lock2" type="password" className="validate" />
-          <label htmlFor="icon_lock2">Password Repeat</label>
+          <input id="signupLock2" type="password" autoComplete="new-password" className="validate" />
+          <label htmlFor="signupLock2">Password Repeat</label>
         </div>
 
         <button className="btn-floating btn-large waves-effect waves-light #5CA4A9">Signup</button>

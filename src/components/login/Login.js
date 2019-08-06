@@ -23,7 +23,7 @@ class Login extends Component {
     
       this.service.login(uName, pWord)
       .then(()=>{
-        console.log("the props ------- ", this.props);
+        // console.log("the props ------- ", this.props);
           this.props.getUser(
             ()=>{
             this.props.history.push('/userHomepage')
@@ -46,15 +46,15 @@ class Login extends Component {
           <form onSubmit = {this.tryToLogin}>
           <div className="input-field col s6">
           <i className="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" className="validate" value={this.state.usernameInput}
+          <input id="loginIcon" type="text" className="validate" autoComplete="username" value={this.state.usernameInput}
             name="usernameInput"
              onChange={this.handleChange}/>
-          <label htmlFor="icon_prefix">First Name</label>
+          <label htmlFor="loginIcon">First Name</label>
         </div>
 
         <div className="input-field col s6">
           <i className="material-icons prefix">lock</i>
-          <input id="icon_lock" type="password" className="validate" value={this.state.passwordInput} 
+          <input id="icon_lock" type="password" className="validate" autoComplete="current-password" value={this.state.passwordInput} 
                name="passwordInput" onChange={this.handleChange}/>
           <label htmlFor="icon_lock">Password</label>
         </div>

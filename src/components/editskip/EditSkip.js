@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 // import ('./createskip.css');
 import 'materialize-css';
-import { Modal, Button } from 'react-materialize';
+
 
 
 
@@ -12,85 +12,68 @@ class EditSkip extends Component {
   constructor(props){
     super(props)
     this.state = {
-      newCity: "",
-      newArrive: "",
-      newDuration: 0,
-      newDecription: "",
+      city: this.props.location.state.city,
+      arrive: this.props.location.state.arrivedBy,
+      duration: this.props.location.state.duration,
+      description: this.props.location.state.description,
     }
   }
 
+  // componentDidMount() {
+  //   axios.get(
+  //       "http://localhost:5000/api/jump/details/" + this.props.match.params.id
+  //     )
+  //     .then(thisSingleSkip => {
+  //       // console.log(thisSingleSkip.data);
+  //       this.setState({ 
+  //         start: thisSingleSkip.data.city,
+  //         end: thisSingleSkip.data.arrive,
+  //         duration: thisSingleSkip.data.duration,
+  //         description: thisSingleSkip.data.description,
+  //      });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    axios.post("http://localhost:5000/api/skip/newSkip", {
-      skipCity: this.state.newSkipCity,
-      skipArrive: this.state.newSkipArrive,
-      skipDuration: this.state.newSkipDuration,
-      skipDescription: this.state.newSkipDescription,
+    // console.log(this.state);
+    axios.post("http://localhost:5000/api/skip/updateSkip/" + this.props.location.state.skipId, {
+      skipCity: this.state.city,
+      skipArrive: this.state.arrive,
+      skipDuration: this.state.duration,
+      skipDescription: this.state.description,
     }, {withCredentials: true})
-    .then(() => {
-      // this.props.getData(); <= we didnt need this because we get the date another way...
-      //this function updates something
-        this.setState({
-          newSkipCity: "", 
-          newSkipArrive: "", 
-          newSkipDuration: 0, 
-          newSkipDescription: ""
-        });
-    })
+   
     .catch (error => console.log(error))
   }
 
   handleChange = (event) => {  
-      const {name, value} = event.target;
-      this.setState({[name]: value});
-      console.log(this.state)
+    this.setState({
+      [event.target.name]:event.target.value
+    })
   }
 
 
 
   render() {
+    console.log(this.props);
     return (
       <div>
-          <div>
-          <Button href="#modal4" className="modal-trigger">
-          EditSkip
-          </Button>
-          <Modal id="modal4">   
-      <div>
-         <h3>Edit Skip</h3>
-          <div className="editSkip">
-
-            <form onSubmit={this.handleFormSubmit}>
-
-              <div className="input-field col s12">
-                <input id="city" type="text" className="validate" name="newSkipCity" value={this.state.newSkipCity} onChange={ e => this.handleChange(e)} required/>
-                <label htmlFor="city">City</label>
-              </div>
-
-              <div className="input-field col s12">
-                <input id="arriveBy" type="text" className="validate" name="newSkipArrive" value={this.state.newSkipArrive} onChange={e => this.handleChange(e)} required/>
-                <label htmlFor="arriveBy">Arrived By</label>
-              </div>
-              
-              <div className="input-field col s12">
-                <input id="skipDuration" type="number" className="validate" name="newSkipDuration" value={this.state.newSkipDuration} onChange={e => this.handleChange(e)} required/>
-                <label htmlFor="skipduration">Duration</label>
-              </div>
-            
-              <div className="input-field col s12">
-                <textarea id="textarea3" className="materialize-textarea"  name="newSkipDescription" value={this.state.newSkipDescription} onChange={ e => this.handleChange(e)} required/>
-                <label htmlFor="textarea3">Describe Your Adventure</label>
-              </div>
-             <button className="btn">Add Skip</button>
-            </form>
-          </div>
-        </div>
-          </Modal>
-          </div>
-        </div>
-
-
+      <form onSubmit={this.handleFormSubmit}>
+        <label>City</label>
+        <input type="text" name="city" value={this.state.city} onChange={this.handleChange}></input>
+        <label>ArriveBy</label>
+        <input type="text" name="arrive" value={this.state.arrive} onChange={this.handleChange}></input>
+        <label>Duration</label>
+        <input type="number" name="duration" value={this.state.duration} onChange={this.handleChange}></input>
+        <label>Description</label>
+        <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input>
+        <button className="btn" type="submit">Save Changes</button>
+      </form>
+    </div>
     )
   }
 }

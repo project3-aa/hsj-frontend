@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import axios from "axios";
 import './displayhop.css'
 
@@ -25,15 +26,24 @@ class DisplayHop extends Component{
 
 
   render(){
+    console.log(this.props.theHopInfo)
     return(
-
       <div>
       <ul>
       <li>POI: {this.props.theHopInfo.poi}</li>
       <li>Arrived by: {this.props.theHopInfo.arrivedBy}</li>
       <li>How it went: {this.props.theHopInfo.description}</li>
       </ul>
-      <button
+       <button><Link to={{
+         pathname: `/editHop/${this.props.theHopInfo}`,
+         state:{
+           hopId: this.props.theHopInfo._id,
+           POI: this.props.theHopInfo.poi,
+           arrivedBy: this.props.theHopInfo.arrivedBy,
+           description: this.props.theHopInfo.description,
+         }
+       }}>Edit This Hop</Link></button>
+      <button>
           onClick={() => {
             this.deleteHop(this.props.theHopInfo._id);
           }}

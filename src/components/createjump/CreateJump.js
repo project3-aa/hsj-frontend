@@ -22,7 +22,7 @@ class CreateJump extends Component {
   
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     axios.post("http://localhost:5000/api/jump/newJump", {
       startCity: this.state.newStart,
       endCity: this.state.newEnd,
@@ -47,7 +47,7 @@ class CreateJump extends Component {
   handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
-      console.log(this.state)
+      // console.log(this.state)
   }
    
   onClick (){

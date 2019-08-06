@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { start } from 'repl';
 
 class EditJump extends Component {
   constructor(props){
     super(props);
     this.state = {
-      newStart: "",
-      newEnd: "",
-      newDuration: "",
-      newDescription: "", 
-      aJump: null,
+      start: "",
+      end: "",
+      duration: "",
+      description: "",
     }
   }
   
@@ -19,7 +17,13 @@ class EditJump extends Component {
         "http://localhost:5000/api/jump/details/" + this.props.match.params.id
       )
       .then(thisSingleJump => {
-        this.setState({ aJump: thisSingleJump.data });
+        // console.log(thisSingleJump.data);
+        this.setState({ 
+          start: thisSingleJump.data.start,
+          end: thisSingleJump.data.end,
+          duration: thisSingleJump.data.duration,
+          description: thisSingleJump.data.description,
+       });
       })
       .catch(err => {
         console.log(err);
@@ -27,26 +31,40 @@ class EditJump extends Component {
   }
 
   handleFormSubmit = (event) => {
-    const Start = this.state.Start;
-    const End = this.state.End;
-    const Duration = this.state.Duration;
-    const Description = this.state.Description;
-
     event.preventDefault();
-
-    axios.post(`http://localhost:5000/api/jump/update/${this.props.aJump._id}`,
-     { aStart: Start,
-      aEnd: End,
-      aDuration: Duration,
-      aDescription: Description,
+    // console.log(this.props)
+    axios.post(`http://localhost:5000/api/jump/updateJump/${this.props.match.params.id}`,
+     {  startCity: this.state.start,
+      endCity: this.state.end,
+      jumpDuration: this.state.duration,
+      jumpDescription: this.state.description,
          })
-    .then( () => {
-        this.props.DoSoemthing();
-        this.props.DoSomething();
-    })
     .catch( error => console.log(error) )
   }
 
+  handleChange = (event) => {  
+    this.setState({
+      [event.target.name]:event.target.value
+    })
+  }
+
+  render(){
+    return (
+    <div>
+      <form onSubmit={this.handleFormSubmit}>
+        <label>Start</label>
+        <input type="text" name="start" value={this.state.start} onChange={this.handleChange}></input>
+        <label>End</label>
+        <input type="text" name="end" value={this.state.end} onChange={this.handleChange}></input>
+        <label >duration</label>
+        <input type="number" name="duration" value={this.state.duration} onChange={this.handleChange}></input>
+        <label > description</label>
+        <input type="text" name="description" value={this.state.description} onChange={this.handleChange}></input>
+        <button className="btn" type="submit">Save Changes</button>
+      </form>
+    </div>
+    )
+  }
   
   
 

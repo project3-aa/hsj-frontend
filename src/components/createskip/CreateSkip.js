@@ -21,7 +21,7 @@ class CreateSkip extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     axios.post("http://localhost:5000/api/skip/newSkip", {
       skipCity: this.state.newSkipCity,
       skipArrive: this.state.newSkipArrive,
@@ -33,7 +33,7 @@ class CreateSkip extends Component {
       // this.props.getData(); <= we didnt need this because we get the date another way...
       //this function updates something
 
-      console.log('we just created a skip-=-=-=-=-=-=-=-=-=-');
+      // console.log('we just created a skip-=-=-=-=-=-=-=-=-=-');
         this.setState({
           newSkipCity: "", 
           newSkipArrive: "", 
@@ -47,13 +47,13 @@ class CreateSkip extends Component {
   handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
-      console.log(this.state)
+      // console.log(this.state)
   }
 
 
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
           <div>
