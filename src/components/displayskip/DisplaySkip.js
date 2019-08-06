@@ -97,7 +97,7 @@ class DisplaySkip extends Component {
         }>Edit This Skip</Link></button>
         {this.renderHops()}
         {this.renderHopAdd()}
-        <button>
+        <button
           onClick={() => {
             this.deleteSkip(this.props.theSkipInfo._id);
           }}

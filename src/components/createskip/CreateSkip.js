@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 // import {Link, NavLink} from 'react-router-dom';
 import axios from 'axios';
 import 'materialize-css';
-import { Modal, Button } from 'react-materialize';
+import { Modal, Button,Select } from 'react-materialize';
 import './createskip.css';
 
 
@@ -12,9 +12,9 @@ class CreateSkip extends Component {
   constructor(props){
     super(props)
     this.state = {
-      newCity: "",
-      newArrive: "",
-      newDuration: 0,
+      newSkipCity: "",
+      newSkipArrive: "",
+      newSkipDuration: 0,
       newDecription: "",
     }
   }
@@ -45,7 +45,9 @@ class CreateSkip extends Component {
   }
 
   handleChange = (event) => {  
+    console.log(event.target)
       const {name, value} = event.target;
+      console.log(name, value)
       this.setState({[name]: value});
       // console.log(this.state)
   }
@@ -53,7 +55,7 @@ class CreateSkip extends Component {
 
 
   render() {
-    // console.log(this.props)
+    console.log(this.state)
     return (
       <div>
           <div>
@@ -72,25 +74,25 @@ class CreateSkip extends Component {
                 <label htmlFor="city">City</label>
               </div>
 
-              <div className="input-field col s12">
+              {/* <div className="input-field col s12">
                 <input id="arriveBy" type="text" className="validate" name="newSkipArrive" value={this.state.newSkipArrive} onChange={e => this.handleChange(e)} required/>
                 <label htmlFor="arriveBy">Arrived By</label>
-              </div>
+              </div> */}
 
-                 {/* <Select name="newSkipArrive" value={this.state.newSkipArrive} onChange={this.handleChange} required> 
-                  <option value="" disabled>
+                 <Select name="newSkipArrive" onChange={this.handleChange} required> 
+                  <option value="" active>
                   Arrived By:
                   </option>
-                  <option value="1">
+                  <option value="Car" >
                   Car
                   </option>
-                  <option value="2">
+                  <option value="Train" >
                   Train
                   </option>
-                  <option value="3">
+                  <option value="Boat">
                   Boat
                   </option>
-                  </Select> */}
+                  </Select>
               
               <div className="input-field col s12">
                 <input id="skipDuration" type="number" className="validate" name="newSkipDuration" value={this.state.newSkipDuration} onChange={e => this.handleChange(e)} required/>
