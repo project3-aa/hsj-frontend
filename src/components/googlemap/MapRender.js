@@ -4,7 +4,11 @@ import React from "react";
 class MappyMap extends React.Component{
 
 
+
+
 render(){
+  
+  console.log('props in the map object!!!!', this.props.renderSkips)
 
 const { compose, withProps, lifecycle } = require("recompose");
 
@@ -31,9 +35,23 @@ const MapWithADirectionsRenderer = compose(
       const DirectionsService = new window.google.maps.DirectionsService();
 
       DirectionsService.route({
-        origin: new window.google.maps.LatLng(25.761681, -80.191788),
-        destination: new window.google.maps.LatLng(40.712776, -74.005974),
-        // waypoints: new window.google.maps.string('Miami', 'New York')
+        origin: this.props.waypoints[0] ? this.props.waypoints[0].location : 'Downtown Miami', 
+        destination: this.props.waypoints[0] ? this.props.waypoints[1].location : 'Miami Airport',
+        waypoints: this.props.waypoints[0] ? this.props.waypoints : null,
+        // [
+        //   { 
+        //   location: 'Edinburgh',
+        //   // stopover: true
+        //   },
+        //   { 
+        //   location: 'Isle of Skye',
+        //   // stopover: true
+        //   },
+        //   {
+        //   location: 'Dublin',
+        //   // stopover: true
+        //   },
+        // ],
         travelMode: window.google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK) {
@@ -60,7 +78,7 @@ const MapWithADirectionsRenderer = compose(
 
 
     return(
-  <MapWithADirectionsRenderer />
+  <MapWithADirectionsRenderer waypoints={this.props.renderSkips} />
     )
   }
 }

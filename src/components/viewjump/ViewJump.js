@@ -11,7 +11,8 @@ class ViewJump extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      theJump: null
+      theJump: null,
+      skipCityArray: []
     };
   }
 
@@ -23,6 +24,7 @@ class ViewJump extends Component {
       )
       .then(theSingleJump => {
         this.setState({ theJump: theSingleJump.data });
+        this.skipsForGoogleMaps()
       })
       .catch(err => {
         console.log(err);
@@ -70,6 +72,20 @@ class ViewJump extends Component {
     }
   }
 
+  skipsForGoogleMaps() {
+    if (this.state.theJump.skip) {
+      return this.state.theJump.skip.map(skip => {
+        this.state.skipCityArray.push({location: skip.city})
+        this.setState();
+        return (
+          {location: skip.city}
+        );
+      });
+    } else {
+      return null;
+    }
+  }
+
   renderSkipEdit() {
     if (
       this.state.theJump.skip[0] &&
@@ -106,9 +122,10 @@ class ViewJump extends Component {
 
   render() {
     if (this.state.theJump) {
+      console.log('asdfasdf',this.state.skipCityArray)
       return (
         <div>
-          <MappyMap />
+          <MappyMap renderSkips={this.state.skipCityArray}/>
           {this.createTitle()}
 
           <div>
