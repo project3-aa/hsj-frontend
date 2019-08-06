@@ -5,6 +5,7 @@ import axios from "axios";
 import "./viewjump.css";
 import EditSkip from "../editskip/EditSkip.js";
 import CreateSkip from "../createskip/CreateSkip.js";
+import MappyMap from '../googlemap/MapRender.js'
 
 class ViewJump extends Component {
   constructor(props) {
@@ -107,6 +108,7 @@ class ViewJump extends Component {
     if (this.state.theJump) {
       return (
         <div>
+          <MappyMap />
           {this.createTitle()}
 
           <div>
