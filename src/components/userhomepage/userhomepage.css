@@ -14,3 +14,10 @@
 .userLinks a:hover{
   color: blue;
 }
+
+hr{ 
+  height: 0px !important;
+  color: #bbb !important;
+  background-color: #bbb !important;
+  width: 65%;
+}

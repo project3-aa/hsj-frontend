@@ -6,7 +6,8 @@ body{
 
 
 nav img{
-  height: 55px;
+  margin-top: 5px;
+  height: 70px;
 }
 
 ul{
@@ -14,9 +15,14 @@ ul{
 }
 
 nav{
-  background-image: url('/images/nav1.jpeg');
+  background-image: url('/images/HSJHeader.jpeg');
+  height: 80px !important;
 }
 
 .btn{
   margin-left: 12px;
+}
+
+.userHomePage{
+  color: black;
 }

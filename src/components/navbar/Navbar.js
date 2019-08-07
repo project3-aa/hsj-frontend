@@ -46,9 +46,9 @@ class Navbar extends Component {
      <div className="HomePage">
         <nav className="transparent">
         <div className="nav-wrapper">
-        <img src="../../../images/hsj4Logo.png" alt="HSJLOGO" className="brand-logo center"></img>
+        <img src="/images/hsjLogo.png" alt="HSJLOGO" className="brand-logo center"></img>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><Link to='/userHomepage'>User Homepage</Link></li>
+            <li><Link to='/userHomepage' className="userHomePage">User Homepage</Link></li>
             {this.state.signupShowing && 
             <Signup getUser = {this.getCurrentlyLoggedInUser}
             toggleForm = {this.toggleForm}/>}

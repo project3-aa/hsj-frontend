@@ -19,7 +19,7 @@ class AllJumps extends Component {
           this.setState({
             jumps: res.data
           })
-        }) .catch(err => {
+        }).catch(err => {
           console.log(err)
         })
   }

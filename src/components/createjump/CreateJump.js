@@ -17,37 +17,51 @@ class CreateJump extends Component {
       newDescription: "",
       createSkipVisible: false,
       createHopVisible: false,
+      newImage: null,
     }
   }
   
   handleFormSubmit = (event) => {
     event.preventDefault();
+    
+    let newJump = new FormData();
+     newJump.append('theImageParameter', this.state.newImage)
+     newJump.append('startCity', this.state.newStart )
+     newJump.append('endCity', this.state.newEnd)
+     newJump.append('jumpDuration', this.state.newDuration)
+     newJump.append('jumpDescription', this.state.newDescription)
     // console.log(this.state);
-    axios.post("http://localhost:5000/api/jump/newJump", {
-      startCity: this.state.newStart,
-      endCity: this.state.newEnd,
-      jumpDuration: this.state.newDuration,
-      jumpDescription: this.state.newDescription,
-    }, {withCredentials: true})
-    .then(() => {
-      // this.props.getData();
-      //this function updates something
-        this.setState({
-          newStart: "", 
-          newEnd: "", 
-          newDuration: 0, 
-          newDescription: "",
-        });
-    })
-    .catch (error => console.log(error))
-  }
-
+    axios.post("http://localhost:5000/api/jump/newJump", newJump, { headers:  {
+      'Content-Type': 'multipart/form-data',
+    }, withCredentials: true })
+          .then(() => {
+            // this.props.getData();
+            //this function updates something
+            this.setState({
+              newStart: "", 
+              newEnd: "", 
+              newDuration: 0, 
+              newDescription: "",
+            });
+          })
+          .catch (error => console.log(error))
+        }
+        
+        // under axios.post before cloudinary
+        // startCity: this.state.newStart,
+        // endCity: this.state.newEnd,
+        // jumpDuration: this.state.newDuration,
+        // jumpDescription: this.state.newDescription,
 
 
   handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
       // console.log(this.state)
+  }
+
+  updateFileInState = (e) =>{
+    this.setState({newImage: e.target.files[0]})
   }
    
   onClick (){
@@ -95,7 +109,11 @@ class CreateJump extends Component {
           <textarea id="textarea1" className="materialize-textarea"name="newDescription" value={this.state.newDescription} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="textarea1">Description</label>
         </div>
-
+          
+          <div className="input-field col s12">
+          <legend style={{marginTop: '100px'}}>Choose a Picture</legend>
+          <input type="file" onChange={this.updateFileInState} />
+          </div>
           <button className="btn waves-effect waves-dark">Create Jump</button>
         </form>
         </div>

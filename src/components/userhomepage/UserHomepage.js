@@ -81,6 +81,7 @@ class UserHomepage extends Component {
             <Link to='/createJump'>CREATE A NEW JUMP</Link>
             <Link to='/allJumps'>ALL JUMPS</Link>
         </div>
+        <hr/>
 
         {/* <span>Hello, {this.props.theUser.username}</span> */}
         <div>the user has {this.getTotalUserJumps()} lifetime Jumps</div>
