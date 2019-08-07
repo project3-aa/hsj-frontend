@@ -31,27 +31,48 @@ class CreateJump extends Component {
      newJump.append('jumpDuration', this.state.newDuration)
      newJump.append('jumpDescription', this.state.newDescription)
     // console.log(this.state);
-    axios.post("http://localhost:5000/api/jump/newJump", newJump, { headers:  {
-      'Content-Type': 'multipart/form-data',
-    }, withCredentials: true })
-          .then(() => {
-            // this.props.getData();
-            //this function updates something
-            this.setState({
-              newStart: "", 
-              newEnd: "", 
-              newDuration: 0, 
-              newDescription: "",
-            });
-          })
-          .catch (error => console.log(error))
-        }
+    // axios.post("http://localhost:5000/api/jump/newJump", newJump, { headers:  {
+    //   'Content-Type': 'multipart/form-data',
+    // }, withCredentials: true })
+    //       .then(() => {
+    //         // this.props.getData();
+    //         //this function updates something
+    //         this.setState({
+    //           newStart: "", 
+    //           newEnd: "", 
+    //           newDuration: 0, 
+    //           newDescription: "",
+    //         });
+    //       })
+    //       .catch (error => console.log(error))
+    //     }
         
         // under axios.post before cloudinary
         // startCity: this.state.newStart,
         // endCity: this.state.newEnd,
         // jumpDuration: this.state.newDuration,
         // jumpDescription: this.state.newDescription,
+
+    axios.post("http://localhost:5000/api/jump/newJump", {
+      startCity: this.state.newStart,
+      endCity: this.state.newEnd,
+      jumpDuration: this.state.newDuration,
+      jumpDescription: this.state.newDescription,
+    }, {withCredentials: true})
+    .then((theCreatedJump) => {
+      // this.props.getData();
+      //this function updates something
+      this.props.history.push('/viewJump/' + theCreatedJump.data._id)
+        this.setState({
+          newStart: "", 
+          newEnd: "", 
+          newDuration: 0, 
+          newDescription: "",
+        });
+    })
+    .catch (error => console.log(error))
+  }
+
 
 
   handleChange = (event) => {  
@@ -80,7 +101,7 @@ class CreateJump extends Component {
 
 
   render(){
-
+    console.log(this.props);
     return(
       <div>
       <div className="createJump">
@@ -91,13 +112,13 @@ class CreateJump extends Component {
         <div className="input-field col s6">
           <i  id="plane" className="material-icons prefix">airplanemode_active</i>
           <input id="icon_plane" type="text" className="validate" name="newStart" value={this.state.newStart} onChange={ e => this.handleChange(e)} required/>
-          <label htmlFor="icon_plane">Start</label>
+          <label htmlFor="icon_plane">Flew into</label>
         </div>
 
         <div className="input-field col s6">
           <i  id="plane" className="material-icons prefix">airplanemode_active</i>
           <input id="icon_plane2" type="text" className="validate" name="newEnd" value={this.state.newEnd} onChange={e => this.handleChange(e)} required/>
-          <label htmlFor="icon_plane2">End</label>
+          <label htmlFor="icon_plane2">Flew out of</label>
         </div>
 
         <div className="input-field col s12">

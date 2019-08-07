@@ -26,7 +26,9 @@ class CreateHop extends Component {
           newHopAttraction: "",
           newHopMot: "",
           newHopDescription: "",
+          
         });
+        this.props.showJumpAgain()
     })
     .catch (error => console.log(error))
   }
@@ -64,7 +66,7 @@ class CreateHop extends Component {
           <textarea id="textarea2" className="materialize-textarea" name="newHopDescription" value={this.state.newHopDescription} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="textarea2">Describe Your Adventure</label>
         </div>
-        <button className="btn">Add Hop</button>
+        <button className="btn modal-close">Add Hop</button>
         </form>
       </div>
       </Modal>

@@ -83,9 +83,9 @@ class UserHomepage extends Component {
         </div>
         <hr/>
 
-        {/* <span>Hello, {this.props.theUser.username}</span> */}
-        <div>the user has {this.getTotalUserJumps()} lifetime Jumps</div>
-        <div>the user has {this.getTotalUserSkips()} lifetime skips</div>
+        <span>Pack your bags {this.props.theUser.username}!</span>
+        <div>You have {this.getTotalUserJumps()} lifetime Jumps</div>
+        <div>And {this.getTotalUserSkips()} lifetime skips</div>
         <div>
           {this.showAllUserJumps()}
         </div>

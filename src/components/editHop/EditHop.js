@@ -19,7 +19,10 @@ class EditHop extends Component {
       poi: this.state.poi,
       arrivedBy: this.state.arrivedBy,
       description: this.state.description,
-    }, {withCredentials: true})
+    }, {withCredentials: true}) 
+    .then(()=>{
+      this.props.history.push('/viewJump/' + this.props.match.params.id)
+    })
     .catch (error => console.log(error))
   }
 

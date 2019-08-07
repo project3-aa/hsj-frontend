@@ -17,7 +17,7 @@ class DisplayHop extends Component{
   deleteHop(id) {
     axios.post("http://localhost:5000/api/hop/deleteHop/" + this.props.hopOwner + "/" + id)
       .then(theHopToDelete => {
-        //redirect in here
+        this.props.showJumpAgain()
       })
       .catch(err => {
         console.log(err);
@@ -26,7 +26,7 @@ class DisplayHop extends Component{
 
 
   render(){
-    console.log(this.props.theHopInfo)
+    console.log('the props in the HOPS',this.props)
     return(
       <div>
       <ul>
@@ -35,7 +35,7 @@ class DisplayHop extends Component{
       <li>How it went: {this.props.theHopInfo.description}</li>
       </ul>
        <button><Link to={{
-         pathname: `/editHop/${this.props.theHopInfo}`,
+         pathname: `/editHop/${this.props.jumpOwner}`,
          state:{
            hopId: this.props.theHopInfo._id,
            POI: this.props.theHopInfo.poi,
@@ -43,11 +43,10 @@ class DisplayHop extends Component{
            description: this.props.theHopInfo.description,
          }
        }}>Edit This Hop</Link></button>
-      <button>
+      <button
           onClick={() => {
             this.deleteHop(this.props.theHopInfo._id);
-          }}
-        >
+          }}>
           Delete Hop
         </button>
       </div>

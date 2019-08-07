@@ -30,9 +30,7 @@ class CreateSkip extends Component {
       theJump: this.props.jumpOwner
     }, {withCredentials: true})
     .then(() => {
-      // this.props.getData(); <= we didnt need this because we get the date another way...
-      //this function updates something
-
+      this.props.showJumpAgain()
       // console.log('we just created a skip-=-=-=-=-=-=-=-=-=-');
         this.setState({
           newSkipCity: "", 
@@ -45,9 +43,9 @@ class CreateSkip extends Component {
   }
 
   handleChange = (event) => {  
-    console.log(event.target)
+    // console.log(event.target)
       const {name, value} = event.target;
-      console.log(name, value)
+      // console.log(name, value)
       this.setState({[name]: value});
       // console.log(this.state)
   }
@@ -55,7 +53,7 @@ class CreateSkip extends Component {
 
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div>
           <div>
@@ -103,7 +101,7 @@ class CreateSkip extends Component {
                 <textarea id="textarea3" className="materialize-textarea"  name="newSkipDescription" value={this.state.newSkipDescription} onChange={ e => this.handleChange(e)} required/>
                 <label htmlFor="textarea3">Describe Your Adventure</label>
               </div>
-             <button className="btn">Add Skip</button>
+             <button className="btn modal-close">Add Skip</button>
             </form>
           </div>
         </div>

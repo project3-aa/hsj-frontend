@@ -17,7 +17,7 @@ class ViewJump extends Component {
   }
 
   //make axios call here for single jump
-  getSingleJumpInfo() {
+  getSingleJumpInfo = () => {
     axios
       .get(
         "http://localhost:5000/api/jump/details/" + this.props.match.params.id
@@ -58,12 +58,14 @@ class ViewJump extends Component {
     if (this.state.theJump.skip) {
       return this.state.theJump.skip.map(skip => {
         return (
-          <DisplaySkip
+          <DisplaySkip 
+            {...this.props}
             key={skip._id}
             theSkipInfo={skip}
             theUser={this.props.theUser}
             jumpOwner={this.state.theJump.ownerId}
             jumpId={this.state.theJump._id}
+            showJumpAgain={this.getSingleJumpInfo}
           />
         );
       });
@@ -97,23 +99,26 @@ class ViewJump extends Component {
     }
   }
 
-  renderSkipAdd() {
+  renderSkipAdd = () => {
     if (
       this.state.theJump &&
       this.props.theUser._id === this.state.theJump.ownerId
     ) {
-      return <CreateSkip jumpOwner={this.state.theJump._id} />;
+      return <CreateSkip 
+      jumpOwner={this.state.theJump._id}
+      showJumpAgain={this.getSingleJumpInfo}/>;
     }
   }
 
-  deleteJump() {
+  deleteJump(e) {
+    // if(!window.confirm('Are you sure you want to delete the whole Jump?'))e.preventDefault()
     axios
       .post(
         "http://localhost:5000/api/jump/deleteJump/" + this.state.theJump._id
       )
       .then(theJumpToDelete => {
         // console.log("sucessfully deleted", theJumpToDelete);
-        //redirect in here
+        this.props.history.push('/userHomepage')
       })
       .catch(err => {
         console.log(err);
@@ -122,7 +127,7 @@ class ViewJump extends Component {
 
   render() {
     if (this.state.theJump) {
-      console.log('asdfasdf',this.state.skipCityArray)
+      // console.log('asdfasdf',this.state.skipCityArray)
       return (
         <div>
           <MappyMap renderSkips={this.state.skipCityArray}/>
@@ -141,7 +146,7 @@ class ViewJump extends Component {
           </div>
           <button> <Link to={`/editJump/${this.state.theJump._id}`}>Edit This Jump</Link></button>
           <button
-          onClick={() => {
+          onClick= {(e) => {
             this.deleteJump();
           }}
         >

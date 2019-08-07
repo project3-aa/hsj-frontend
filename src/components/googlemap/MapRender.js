@@ -8,8 +8,6 @@ class MappyMap extends React.Component{
 
 render(){
   
-  console.log('props in the map object!!!!', this.props.renderSkips)
-
 const { compose, withProps, lifecycle } = require("recompose");
 
 

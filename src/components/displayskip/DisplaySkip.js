@@ -14,16 +14,6 @@ class DisplaySkip extends Component {
     };
   }
 
-  // returnHops = () =>{
-  //   if(this.props.theSkipInfo.hops){
-  //   this.props.theSkipInfo.hops.map((skip, index) =>{
-  //     return <p>{skip.city}</p>
-  //   })
-  //   } else {
-  //     return null
-  //   }
-  // }
-
   renderHops() {
     if (this.props.theSkipInfo.hop) {
       return this.props.theSkipInfo.hop.map(hop => {
@@ -33,6 +23,8 @@ class DisplaySkip extends Component {
             theHopInfo={hop}
             theUser={this.props.theUser}
             hopOwner={this.props.theSkipInfo._id}
+            jumpOwner={this.props.jumpId}
+            showJumpAgain={this.props.showJumpAgain}
           />
         );
       });
@@ -46,7 +38,7 @@ class DisplaySkip extends Component {
       this.props.theSkipInfo &&
       this.props.theUser._id === this.props.jumpOwner
     ) {
-      return <CreateHop hopOwner={this.props.theSkipInfo._id} />;
+      return <CreateHop showJumpAgain={this.props.showJumpAgain} hopOwner={this.props.theSkipInfo._id} />;
     }
   }
 
@@ -58,8 +50,9 @@ class DisplaySkip extends Component {
           "/" +
           id
       )
-      .then(theJumpToDelete => {
-        //redirect in here
+      .then(() => {
+        // console.log('test======', this.props.jumpId);
+        this.props.showJumpAgain()
       })
       .catch(err => {
         console.log(err);
@@ -76,7 +69,7 @@ class DisplaySkip extends Component {
   // }
 
   render() {
-    // console.log('this is the skip info----',this.props.theSkipInfo) //<<<<this returns info!!!!!!
+    // console.log('this is the skip info----',this.props) //<<<<this returns info!!!!!!
     // console.log('the state-----',this.state);
     return (
       <div className="eachskip">
@@ -86,7 +79,7 @@ class DisplaySkip extends Component {
         <h5>Days Spent: {this.props.theSkipInfo.duration}</h5>
         <h5>How it went: {this.props.theSkipInfo.description}</h5>
         <button><Link to={{
-          pathname: `/editSkip/${this.props.theSkipInfo}`, 
+          pathname: `/editSkip/${this.props.theSkipInfo.jumpOwner}`, 
           state: {
             skipId: this.props.theSkipInfo._id,
             city: this.props.theSkipInfo.city,

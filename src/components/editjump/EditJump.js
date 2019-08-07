@@ -39,6 +39,9 @@ class EditJump extends Component {
       jumpDuration: this.state.duration,
       jumpDescription: this.state.description,
          })
+    .then(()=>{
+      this.props.history.push('/viewJump/' + this.props.match.params.id)
+    })
     .catch( error => console.log(error) )
   }
 

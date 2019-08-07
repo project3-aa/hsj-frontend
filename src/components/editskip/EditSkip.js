@@ -46,7 +46,9 @@ class EditSkip extends Component {
       skipDuration: this.state.duration,
       skipDescription: this.state.description,
     }, {withCredentials: true})
-   
+    .then(()=>{
+      this.props.history.push('/viewJump/' + this.props.match.params.id)
+    })
     .catch (error => console.log(error))
   }
 
@@ -59,7 +61,7 @@ class EditSkip extends Component {
 
 
   render() {
-    console.log(this.props);
+    console.log('PROPS IN THE SKIP',this.props);
     return (
       <div>
       <form onSubmit={this.handleFormSubmit}>
