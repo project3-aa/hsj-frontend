@@ -76,7 +76,12 @@ class UserHomepage extends Component {
 
   render(){
     return(
-      <div>
+      <div className="userHome">
+        <div className="userLinks">
+            <Link to='/createJump'>CREATE A NEW JUMP</Link>
+            <Link to='/allJumps'>ALL JUMPS</Link>
+        </div>
+
         {/* <span>Hello, {this.props.theUser.username}</span> */}
         <div>the user has {this.getTotalUserJumps()} lifetime Jumps</div>
         <div>the user has {this.getTotalUserSkips()} lifetime skips</div>
@@ -84,8 +89,6 @@ class UserHomepage extends Component {
           {this.showAllUserJumps()}
         </div>
 
-      <button><Link to='/createJump'>CREATE A NEW JUMP</Link></button>
-      <button><Link to='/allJumps'>ALL JUMPS</Link></button>
 
       </div>
     )

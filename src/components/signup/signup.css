@@ -1,0 +1,14 @@
+.signUpBtn{
+  background-color: transparent !important;
+  border-radius: 12px !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.accountSignupBtn{
+  background-color: #E6EBE0 !important;
+  border-radius: 12px !important;
+  color: #5CA4A9 !important;
+  margin-left: 300px !important;
+}
+

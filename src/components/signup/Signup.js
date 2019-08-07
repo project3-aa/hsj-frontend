@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../../services/AuthService';
-// import { Link } from 'react-router-dom';
+import './signup.css'
 import { Modal, Button } from 'react-materialize';
 
 class Signup extends Component {
@@ -32,11 +32,11 @@ class Signup extends Component {
   render(){
     return(
       <div>
-      <Button href="#modal2" className="modal-trigger">
-      Signup
+      <Button href="#modal2" className="signUpBtn modal-trigger">
+      Sign Up
       </Button>
       <Modal id="modal2">
-      <h5>Sign Up htmlFor An Account</h5>
+      <h5>Sign Up For An Account</h5>
           <form onSubmit = {this.tryToSignUp}>
             
           <div className="input-field col s6">
@@ -60,7 +60,7 @@ class Signup extends Component {
           <label htmlFor="signupLock2">Password Repeat</label>
         </div>
 
-        <button className="btn-floating btn-large waves-effect waves-light #5CA4A9">Signup</button>
+        <button className="accountSignupBtn btn #5CA4A9 modal-close">Signup</button>
           </form>
       </Modal>
       </div>

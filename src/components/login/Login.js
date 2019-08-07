@@ -38,10 +38,10 @@ class Login extends Component {
     
     return(
     <div>
-      <Button href="#modal1" className="modal-trigger">
+      <Button href="#loginModal" className="loginBtn modal-trigger">
       Log In
       </Button>
-      <Modal id="modal1">
+      <Modal id="loginModal">
       <h5>Login</h5>
           <form onSubmit = {this.tryToLogin}>
           <div className="input-field col s6">
@@ -58,7 +58,7 @@ class Login extends Component {
                name="passwordInput" onChange={this.handleChange}/>
           <label htmlFor="icon_lock">Password</label>
         </div>
-        <button type= "submit" className="btn-floating btn-large waves-effect waves-light #5CA4A9">Login</button>
+        <button type= "submit" className="accountLogin btn #5CA4A9 modal-close">Login</button>
           </form>
       </Modal>
       </div>

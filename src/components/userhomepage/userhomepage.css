@@ -1,0 +1,16 @@
+.userHome{
+  margin-top: 50px;
+}
+
+.userLinks{
+  display: flex;
+  justify-content: center;
+}
+
+.userLinks a{
+  color: black;
+  margin-right: 12px;
+}
+.userLinks a:hover{
+  color: blue;
+}

@@ -1,3 +1,71 @@
+/* Login Modal */
 .input-field{
   width: 400px;
 }
+
+.loginBtn{
+  background-color: transparent !important;
+  border-radius: 12px !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.accountLogin{
+  background-color: #E6EBE0 !important;
+  border-radius: 12px !important;
+  color: #5CA4A9 !important;
+  margin-left: 300px !important;
+}
+
+#loginModal {
+  /* background-color: #9BC1BC !important; */
+  background-image: url('/images/mapPin2.jpg') !important;
+  opacity: 0.8 !important;
+}
+#loginModal h5{
+  text-align: center !important;
+  color: white !important;
+}
+
+#loginModal > .modal-footer {
+  /* background-color: #9BC1BC !important; */
+  background-image: url('/images/mapPin2.jpg') !important;
+}
+
+.input-field input[type=text] + label {
+  color: #000 !important;
+}
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid white !important;
+  box-shadow: none !important;
+}
+
+.input-field input[type=password] + label {
+  color: #000 !important;
+}
+.input-field input[type=text]:focus + label {
+  color: white !important;
+}
+
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid white !important;
+  box-shadow: none !important;
+}
+
+.input-field input[type=password]:focus + label {
+  color: white !important;
+}
+
+.input-field .prefix.active {
+  color: white !important;
+}
+
+.input-field .prefix {
+  color: white !important;
+}
+
+#loginModal .waves-effect{
+  display: none !important;
+}
+
+/* ^Login Modal */

@@ -22,7 +22,6 @@ class AllJumps extends Component {
         }) .catch(err => {
           console.log(err)
         })
-    
   }
   
   // showAllJumps = () => {
@@ -46,7 +45,6 @@ class AllJumps extends Component {
         {
           this.state.jumps.map( jump => {
             return (
-
               <div>
                 <h4>start: {jump.start}</h4>
                 <h4>end: {jump.end}</h4>
