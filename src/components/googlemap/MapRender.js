@@ -36,7 +36,7 @@ const MapWithADirectionsRenderer = compose(
 
       DirectionsService.route({
         origin: this.props.waypoints[0] ? this.props.waypoints[0].location : 'Downtown Miami', 
-        destination: this.props.waypoints[0] ? this.props.waypoints[1].location : 'Miami Airport',
+        destination: this.props.waypoints[0] ? this.props.waypoints[this.props.waypoints.length -1].location : 'Miami Airport',
         waypoints: this.props.waypoints[0] ? this.props.waypoints : null,
         // [
         //   { 
@@ -67,7 +67,7 @@ const MapWithADirectionsRenderer = compose(
 )(props =>
   <GoogleMap
     defaultZoom={7}
-    defaultCenter={new window.google.maps.LatLng(41.8507300, -87.6512600)}
+    defaultCenter={new window.google.maps.LatLng(25.761681, -80.191788)}
   >
     {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
