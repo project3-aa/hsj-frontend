@@ -57,12 +57,12 @@ class CreateSkip extends Component {
     return (
       <div>
           <div>
-          <Button href="#modal5" className="modal-trigger">
+          <Button href="#createSkip" className="modal-trigger">
           Create new Skip
           </Button>
-          <Modal id="modal5">   
-      <div>
-         <h3>CreateSkip</h3>
+          <Modal id="createSkip">   
+      <div className="createSkipContent">
+         <h3>Create Skip</h3>
           <div className="createSkip">
 
             <form onSubmit={this.handleFormSubmit}>
@@ -77,8 +77,8 @@ class CreateSkip extends Component {
                 <label htmlFor="arriveBy">Arrived By</label>
               </div> */}
 
-                 <Select name="newSkipArrive" onChange={this.handleChange} required> 
-                  <option value="" active>
+                 <Select className="arriveSelect" name="newSkipArrive" onChange={this.handleChange} required> 
+                  <option className="arriveOption" value="" active>
                   Arrived By:
                   </option>
                   <option value="Car" >
@@ -101,7 +101,7 @@ class CreateSkip extends Component {
                 <textarea id="textarea3" className="materialize-textarea"  name="newSkipDescription" value={this.state.newSkipDescription} onChange={ e => this.handleChange(e)} required/>
                 <label htmlFor="textarea3">Describe Your Adventure</label>
               </div>
-             <button className="btn modal-close">Add Skip</button>
+             <button className="addSkip btn modal-close">Add Skip</button>
             </form>
           </div>
         </div>
