@@ -41,20 +41,34 @@ class UserHomepage extends Component {
         // return <h1>Jump Title: {eachJump.skip[0].city} ===>>> {eachJump.skip[eachJump.skip.length -1].city}</h1>
         // }
 
-        return <div key={eachJump._id} className='each-jump'>
-                <div className='jump-desc'>
-                  <Link to={`/viewJump/${eachJump._id}`} className='homelink'>
-                    <h5>{eachJump.start} TO {eachJump.end}</h5>
-                  </Link>
-                  <h4>{eachJump.tagline}</h4>
-                  <p>this trip took {eachJump.duration} days</p>
-                  <p>{eachJump.description}</p>
-                </div>
+        return <div key={eachJump._id} class="card">
+              <img src={eachJump.image} class="card-img-top" alt="..."/>
+              <div class="card-body">
+                <h5 class="card-title">{eachJump.start} <i  id="plane" className="material-icons prefix">airplanemode_active</i> {eachJump.end}</h5>
+                <p>{eachJump.duration} Days</p>
+                <p class="card-text">{eachJump.description}</p>
+              </div>
+              <div class="card-body">
+              <Link to={`/viewJump/${eachJump._id}`} className='homelink'>
+                View this Jump
+                </Link>
+              </div>
               </div>
 
-      })
-    }
+})
+}
 
+// <div key={eachJump._id} className='each-jump'>
+//         <div className='jump-desc'>
+//           <Link to={`/viewJump/${eachJump._id}`} className='homelink'>
+//             <h5>{eachJump.start} <i  id="plane" className="material-icons prefix">airplanemode_active</i> {eachJump.end}</h5>
+//           </Link>
+//           <h4>{eachJump.tagline}</h4>
+//           <p>this trip took {eachJump.duration} days</p>
+//           <p>{eachJump.description}</p>
+//         </div>
+//       </div>
+// =-=-=-=-=-=-=-=-=-=-=-
 
     getTotalUserSkips(){
       let totalUserSkips = 0;
@@ -83,7 +97,7 @@ class UserHomepage extends Component {
         </div>
         <hr/>
 
-        <span>Pack your bags {this.props.theUser.username}!</span>
+        <span>Travler {this.props.theUser.username}!</span>
         <div>You have {this.getTotalUserJumps()} lifetime Jumps</div>
         <div>And {this.getTotalUserSkips()} lifetime skips</div>
         <div>

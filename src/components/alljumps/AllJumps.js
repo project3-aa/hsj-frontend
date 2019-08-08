@@ -44,11 +44,19 @@ class AllJumps extends Component {
       <div>
         {
           this.state.jumps.map( jump => {
+            console.log(jump.image)
             return (
-              <div>
-                <h4>start: {jump.start}</h4>
-                <h4>end: {jump.end}</h4>
-                <p>{jump.duration} days</p>
+              <div class="card">
+              <img src={jump.image} class="card-img-top" alt="..."/>
+              <div class="card-body">
+                <h5 class="card-title">{jump.start} <i  id="plane" className="material-icons prefix">airplanemode_active</i> {jump.end}</h5>
+                <p>{jump.duration} Days</p>
+                <p class="card-text">{jump.description}</p>
+              </div>
+              <div class="card-body">
+                <a href="/" class="card-link">View this Jump</a>
+                
+              </div>
               </div>
             )
           })
