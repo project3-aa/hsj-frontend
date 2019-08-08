@@ -15,20 +15,49 @@
 
 .addSkip{
   margin-left: 250px;
+  background-color: #4CAF50 !important;
+}
+.createSkip-input-field input[type=text]:focus {
+  border-bottom: 1px solid #4caf50 !important;
+  box-shadow: 0 1px 0 0 #4caf50 !important;
 }
 
    /* valid color */
-   .input-field input[type=text].valid {
-    border-bottom: 1px solid purple;
-    box-shadow: 0 1px 0 0 purple;
+   .createSkip-input-field input[type=text].valid {
+    border-bottom: 1px solid #4caf50 !important;
+    box-shadow: 0 1px 0 0  #4caf50 !important;
   }
   /* invalid color */
-  .input-field input[type=text].invalid {
+  .createSkip-input-field input[type=text].invalid {
     border-bottom: 1px solid red;
     box-shadow: 0 1px 0 0 #000;
+  }
+   /* label focus color */
+   .createSkip-input-field input[type=text]:focus + label {
+    color: #4caf50 !important;
+  }
+  
+  /* label underline focus color */
+  .createSkip-input-field input[type=text]:focus {
+    border-bottom: 1px solid #4caf50 !important;
+    box-shadow: 0 1px 0 0 #4caf50 !important;
   }
 
   .dropdown-content li>span {
     font-size: 16px !important;
     color: black !important;
   }
+
+  .createSkip-input-field[type=number].valid{
+    border-bottom: 1px solid #4caf50 !important;
+    box-shadow: 0 1px 0 0 #4CAF50 !important;
+  } 
+
+.descriptionTextArea:focus {
+  border-bottom: 1px solid #4caf50 !important;
+  box-shadow: 0 1px 0 0 #4CAF50 !important;
+}
+
+.materialize-textarea:focus + label{
+  color: #4CAF50 !important;
+}

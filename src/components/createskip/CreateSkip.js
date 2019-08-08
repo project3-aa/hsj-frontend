@@ -67,7 +67,7 @@ class CreateSkip extends Component {
 
             <form onSubmit={this.handleFormSubmit}>
 
-              <div className="input-field col s12">
+              <div className="createSkip-input-field input-field col s12">
                 <input id="city" type="text" className="validate" name="newSkipCity" value={this.state.newSkipCity} onChange={ e => this.handleChange(e)} required/>
                 <label htmlFor="city">City</label>
               </div>
@@ -92,13 +92,13 @@ class CreateSkip extends Component {
                   </option>
                   </Select>
               
-              <div className="input-field col s12">
+              <div className="createSkip-input-field input-field col s12">
                 <input id="skipDuration" type="number" className="validate" name="newSkipDuration" value={this.state.newSkipDuration} onChange={e => this.handleChange(e)} required/>
                 <label htmlFor="skipduration">Duration</label>
               </div>
             
-              <div className="input-field col s12">
-                <textarea id="textarea3" className="materialize-textarea"  name="newSkipDescription" value={this.state.newSkipDescription} onChange={ e => this.handleChange(e)} required/>
+              <div className="createSkip-input-field input-field col s12">
+                <textarea id="textarea3" className="materialize-textarea descriptionTextArea"  name="newSkipDescription" value={this.state.newSkipDescription} onChange={ e => this.handleChange(e)} required/>
                 <label htmlFor="textarea3">Describe Your Adventure</label>
               </div>
              <button className="addSkip btn modal-close">Add Skip</button>

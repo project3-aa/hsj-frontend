@@ -32,35 +32,35 @@
   background-image: url('/images/mapPin2.jpg') !important;
 }
 
-.input-field input[type=text] + label {
+.login-input-field input[type=text] + label {
   color: #000 !important;
 }
-.input-field input[type=text]:focus {
+.login-input-field input[type=text]:focus {
   border-bottom: 1px solid white !important;
   box-shadow: none !important;
 }
 
-.input-field input[type=password] + label {
+.login-input-field input[type=password] + label {
   color: #000 !important;
 }
-.input-field input[type=text]:focus + label {
+.login-input-field input[type=text]:focus + label {
   color: white !important;
 }
 
-.input-field input[type=password]:focus {
+.login-input-field input[type=password]:focus {
   border-bottom: 1px solid white !important;
   box-shadow: none !important;
 }
 
-.input-field input[type=password]:focus + label {
+.login-input-field input[type=password]:focus + label {
   color: white !important;
 }
 
-.input-field .prefix.active {
+.login-input-field .prefix.active {
   color: white !important;
 }
 
-.input-field .prefix {
+.login-input-field .prefix {
   color: white !important;
 }
 

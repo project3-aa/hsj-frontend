@@ -47,26 +47,26 @@ class CreateHop extends Component {
           <Button href={`#${this.props.hopOwner}`} className="modal-trigger">
           Create new Hop
           </Button>
-          <Modal id={this.props.hopOwner}>  
-      <div className="createHop">
-        <h3> CreateHop for {this.props.hopOwner}</h3>
+          <Modal id={this.props.hopOwner} className="createHopModal">  
+      <div className="createHopContent">
+        <h3> Create Hop</h3>
         <form onSubmit={this.handleFormSubmit}>
 
-        <div className="input-field col s12">
+        <div className="createHop-input-field input-field col s12">
           <input id="poi" type="text" className="validate" name="newHopAttraction" value={this.state.newHopAttraction} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="poi">Point OF Interest</label>
         </div>
         
-        <div className="input-field col s12">
+        <div className="createHop-input-field input-field col s12">
          <input id="mot" type="text" className="validate" name="newHopMot" value={this.state.newHopMot} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="mot">Method OF Transportation</label>
         </div>
 
-        <div className="input-field col s12">
+        <div className="createHop-input-field input-field col s12">
           <textarea id="textarea2" className="materialize-textarea" name="newHopDescription" value={this.state.newHopDescription} onChange={ e => this.handleChange(e)} required/>
           <label htmlFor="textarea2">Describe Your Adventure</label>
         </div>
-        <button className="btn modal-close">Add Hop</button>
+        <button className="btn modal-close addHop">Add Hop</button>
         </form>
       </div>
       </Modal>

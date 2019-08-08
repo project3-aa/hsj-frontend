@@ -44,7 +44,7 @@ class Login extends Component {
       <Modal id="loginModal">
       <h5>Login</h5>
           <form onSubmit = {this.tryToLogin}>
-          <div className="input-field col s6">
+          <div className="login-input-field input-field col s6">
           <i className="material-icons prefix">account_circle</i>
           <input id="loginIcon" type="text" className="validate" autoComplete="username" value={this.state.usernameInput}
             name="usernameInput"
@@ -52,7 +52,7 @@ class Login extends Component {
           <label htmlFor="loginIcon">First Name</label>
         </div>
 
-        <div className="input-field col s6">
+        <div className="login-input-field input-field col s6">
           <i className="material-icons prefix">lock</i>
           <input id="icon_lock" type="password" className="validate" autoComplete="current-password" value={this.state.passwordInput} 
                name="passwordInput" onChange={this.handleChange}/>
